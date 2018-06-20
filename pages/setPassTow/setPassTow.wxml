@@ -1,0 +1,12 @@
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="phoneBox">
+    <text>新密码</text>
+    <input placeholder='密码为6-20位字母、数字组合'></input>
+  </view> 
+  <view class="phoneBox">
+    <text>确认密码</text>
+    <input placeholder='再次输入新密码'></input>
+  </view> 
+
+  <view class="phoneNex">确认</view>
+</view>

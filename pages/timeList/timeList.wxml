@@ -1,0 +1,26 @@
+<wxs src="timeList.wxs" module="week" />
+ <view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+</view> 
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="noData" wx:if="{{noData}}">
+    <image src="../../images/noData.jpg"></image>
+    <text>暂无可用时间</text>
+  </view>
+  
+  <view class="content" wx:else>
+    <calendar-picker start-date="{{start}}" end-date="{{end}}" current="{{count1}}" current-date="{{dt}}" bind:change="onChangeDate" />
+    <view class="distance" wx:if="{{distance == 0}}">今天</view>
+    <view class="distance" wx:if="{{distance !== 0}}">{{distance}}天后</view>
+    <view class='bespeakbox' wx:if="{{con}}">
+      <view class="bespeak {{selectTime == item.nIndex ?'active':''}} {{!item.active ?'noBes':''}}" wx:for="{{list}}" wx:key="{{index}}" data-start="{{item.start}}" data-end="{{item.end}}" data-allTime="{{item.dateTime}}" data-index="{{item.nIndex}}" bindtap="{{item.active?'bespeak':''}}">
+        {{item.showTime}}
+        <view class="btn" wx:if="{{!item.active}}">已约满</view>
+        <view class="btn besBtn" wx:else></view>
+      </view>
+    </view>
+  </view> 
+  <button class="selectedTime {{bol ? 'enselectedTime' : ''}}" bindtap="{{bol ? 'goToOrder' : ''}}">确定</button>
+</view>

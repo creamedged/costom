@@ -1,0 +1,75 @@
+.container{padding-bottom:80rpx;}
+.borderBottom{ border-bottom:1px solid #eeeeee}
+.moreIcon{width:20rpx; height: 22rpx;}
+.addressBox{ border-bottom:1px solid #eeeeee; padding:44rpx 20rpx; overflow: hidden;}
+.addressBox .noAddress{border:1px solid #a0a0a0; position:relative; margin:10rpx 0; display: block; width:310rpx; height:63rpx; border-radius:40rpx; text-align: center; line-height: 63rpx;}
+.addressBox .noAddress text{color:#ddbf5d; font-size:26rpx; display: block; height: 63rpx; position: absolute; right:35rpx; line-height:63rpx; top:0px;}
+.address{font-size:26rpx; color:#000000; position: relative; margin-left:50rpx; padding-right:50rpx;}
+.address image{position:absolute; right:0px; top:10px;}
+.namePhone{padding-bottom:10rpx; font-size:28rpx; color:#333}
+.namePhone text{margin-right:20rpx;font-size:28rpx; color:#333}
+
+.setTime,.priceBox,.coupon{padding:44rpx 20rpx; overflow: hidden;}
+/* .setTime .time{color:#000; font-size:26rpx;float:left;} */
+.setTime .timeContent{margin-left:50rpx; padding-right:40rpx; font-size:26rpx; color:#000; position:relative;}
+.setTime .timeContent image{position:absolute; right:0px; top:3px;}
+
+.money{ float:right; color:#000; font-size:30rpx;}
+.allPrice{float: right; color:#ff0000; font-size:30rpx;}
+.couponContent{margin-left:50rpx; position:relative; right:0px; padding-right:50rpx;}
+.couponContent .title{line-height: 0px; display: block; float:left;margin-top:17rpx;}
+.couponContent .discount{line-height: 0px; position:absolute; right:30rpx; top:17rpx;}
+.couponContent image{position: absolute; right:0px; top:3px}
+
+
+/*新添加 */
+.productDetail .orderNumber{padding:18rpx 20rpx; color:#939393; font-size:24rpx;}
+.productDetail .orderDetail{background:#f9f9f9; padding:20rpx; overflow: hidden;}
+.orderDetail .orderContent{margin-left:221rpx}
+.orderDetail .imgBox{width:180rpx; height: 180rpx; float:left;}
+.orderDetail .imgBox image{width:180rpx; height: 180rpx;}
+.orderDetail .orderTitle{font-size:28rpx; color:#333333; line-height: 29rpx;}
+.orderDetail .orderPrice{font-size:34rpx; color:#ff3b30; margin-top:23rpx; margin-left:-5rpx;}
+.orderDetail .orderPrice text{font-size:18rpx; color:#939393;}
+
+.buyNum{ overflow: hidden; margin-top:25rpx;}
+.changeNum{width:300rpx; overflow: hidden;}
+.changeNum .reduceBox,.changeNum .addBox{width:44rpx; height:52rpx; text-align: center;}
+.changeNum .reduce{width:17rpx; height:4rpx; margin:25rpx auto 0; padding:0px; display: block;}
+.changeNum .add{width:18rpx; height:18rpx; margin:20rpx auto 0; padding:0px; display: block;}
+.changeNum .num{width:91rpx; height: 44rpx; background:#f2f2f2; margin:0 10rpx; text-align: center;}
+
+.defaultNewsSet{font-size:28rpx; color:#aaaaaa;}
+
+.noteBox{padding:44rpx 20rpx; position:relative;}
+.noteBox .textarea{display:block; margin-left:50rpx; height:30rpx; position: relative; z-index: 0;}
+.noteBox .textarea textarea{width:100%; font-size:26rpx; color:#000; line-height: 35rpx; height:50rpx;}
+
+.icon_address,.icon_note,.icon_coupon,.icon_time{width:30rpx; height: 30rpx; display: block; float:left; margin-top:5rpx; text-align: right;}
+.icon_address image{width:27rpx; height: 30rpx; display: block;}
+.icon_time image{width:28rpx; height: 28rpx; display: block;}
+.icon_coupon image{width:26rpx; height: 23rpx; display: block;}
+.icon_note image{width:26rpx; height: 26rpx; display: block;}
+
+.submitBtnBox{position: fixed; bottom:0px; left:0px; right:0px; height:91rpx; float:left; box-shadow: 0px -6rpx 9rpx #f9f9f9; padding-left:20rpx; background:rgba(255,255,255,0.2)}
+.submitBtnBox .subPrice{display:inline-block; overflow: hidden; color:#ff3b30; font-size:40rpx; margin-top:15rpx;font-weight:bold}
+.submitBtnBox .subPrice text{ color:#939393; font-size:28rpx;text-decoration: line-through; margin-left:15rpx;}
+.submitBtn{ height:91rpx; line-height:91rpx;color:#fff; background:#00a0e9; font-size:32rpx;border-radius:0; width:240rpx; float:right}
+
+.skuBtnBox{position: fixed; bottom:0px; left:0px; right: 0rpx; background: #fff; padding-top:30rpx;}
+.skuBtn{height: 80rpx; background:#4396e9; color:#fff; margin:0rpx 20rpx 30rpx; padding:0px;  text-align: center; line-height: 80rpx; border-radius: 15rpx;font-size:32rpx}
+
+.fnFasl{position:relative;}
+.fnFasl .title{color:#333; font-size:32rpx; text-align: center; padding:30rpx 0 40rpx;}
+.fnFasl .item{overflow: hidden; border-bottom:1px solid #efefef; padding:25rpx 20rpx;position:relative;}
+.fnFasl .item .header{font-size:28rpx; color:#333;}
+.fnFasl .item .header text{ color:#ff9e05;}
+.fnFasl .item .time{ color:#aaaaaa; font-size:18rpx; margin-top:18rpx;}
+.fnFasl .item .note{ color:#aaaaaa; font-size:20rpx;}
+.fnFasl .item .couponIcon{position: absolute; right:20rpx; width:30rpx; top:50%; height: 30rpx; margin-top:-15rpx;}
+.fnFasl .item .couponIcon image{width:30rpx; height: 30rpx; }
+
+.tips{background:#a0cafa; font-size:26rpx; height:30rpx; padding:15rpx 0; position:fixed; top:64px; left:0px; right:0px; color:#fff;}
+.tips image{width:30rpx; height: 30rpx; display:block; float:left; margin-right:10rpx;}
+.tips text{float:left; margin-top:-1rpx;}
+.tips .tipsBox{width:300rpx; margin:0 auto;}

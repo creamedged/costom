@@ -1,0 +1,19 @@
+<view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">更换手机号</view>
+</view>
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="phoneBox">
+    <text>新手机号</text>
+    <input value="{{phone}}" bindinput='getPhone' placeholder='请输入新手机号'></input>
+  </view> 
+  <view class="phoneCode">
+    <text>短信验证码</text>
+    <input value="{{code}}" bindinput='getCode' placeholder='输入验证码'></input>
+    <text class="timeCode" bindtap='getAjaxCode'>{{timeTxt}}</text>
+  </view>
+  <view class="errorTip">{{errorTip}}</view>
+  <view class="phoneNex" bindtap="submitOk">确认</view>
+</view>

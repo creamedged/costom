@@ -1,0 +1,5 @@
+var subTime=function(str){
+  var arr=str.split('T');
+  return arr[0]
+}
+module.exports.subTime=subTime

@@ -1,0 +1,117 @@
+<wxs src="../../templates/msglist.wxs" module="myTime" />
+ <view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">订单详情</view>
+</view> 
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="orderNews">
+    <!-- <view class="header">
+      <text class="title">订单信息</text>
+      <block wx:if="{{detail.orderStatus!='done' && detail.orderStatus != 'cancel'}}">
+        <text wx:if="{{detail.orderStatus  == 'waitPay'}}" class="state {{detail.orderStatus  == 'waitPay'?'orderType':''}}">[{{statusList[detail.orderStatus]}}]</text>
+        <text  wx:if="{{detail.orderStatus  == 'waitService'}}" class="state {{detail.orderStatus  == 'waitService'?'orderServiece':''}}">[{{statusList[detail.orderStatus]}}]</text>
+      </block>
+      <text wx:else class="state orderAsh">[{{statusList[detail.orderStatus]}}]</text>
+    </view> -->
+    <view class="content">
+      <view class="orderNum">
+        <text>订单号：{{detail.pay_order_id}}</text>
+        <text class="orderStatus">{{statusList[detail.orderStatus]}}</text>
+      </view>
+      <view class="product" bindtap="goToDetail" data-id="{{detail.product_id}}" data-skuid="{{detail.proSku_id}}">
+        <image wx:if="{{detail.lite_image}}" src="{{detail.lite_image}}" ></image>
+        <image wx:else src="../../images/default.png"></image>
+        <view class="news">
+           <view class="name">{{detail.name}}</view>
+          <view class="price">
+            <view class="priceStyle">
+              <text>￥{{detail.price_pay/100}}</text>
+              <view class="oldPrice"  wx:if="{{detail.price_discount}}">￥<text>{{detail.price_total/100}}</text></view>
+            </view>
+            <view class="couponStyle" wx:if="{{detail.price_discount}}">优惠已抵扣{{detail.price_discount/100}}元</view>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="time_address" wx:if="{{detail.c_begin_datetime != null}}">
+        <text class="title">服务时间</text>
+        <text class="time">{{myTime.forMat(detail.c_begin_datetime,1)}}<text wx:if="{{detail.c_end_datetime!=null}}">-</text>{{myTime.lastTime(detail.c_end_datetime)}}</text> 
+      </view>
+      <view class="time_address">
+        <text class="title">服务地址</text>
+        <text class="time">{{detail.customer_address}}</text>
+      </view>
+      <view class="time_address">
+        <text class="title">服务备注</text>
+        <text class="time">{{detail.remark}}</text>
+      </view> -->
+      <view class="orderDetail">
+        <view class="item" wx:if="{{detail.c_begin_datetime}}">
+          <view class="title">服务时间</view>
+          <view class="price" style="{{detail.c_begin_datetime ? 'color:#333; font-size:32rpx;':''}}">{{myTime.forMat(detail.c_begin_datetime,1)}}<text wx:if="{{detail.c_end_datetime!=null}}">-</text>{{myTime.lastTime(detail.c_end_datetime)}}</view>
+        </view>
+        <view class="item">
+          <view class="title">服务地址</view>
+          <view class="price" style="{{detail.customer_address ? 'color:#333; font-size:32rpx;':''}}">{{detail.customer_address}}</view>
+        </view>
+        <view class="item">
+          <view class="title">联系人</view>
+          <view class="price" style="{{detail.cus_username && detail.cus_phone? 'color:#333; font-size:32rpx;':''}}">{{detail.cus_username}} {{detail.cus_phone}}</view>
+        </view>
+        <view class="item">
+          <view class="title">下单时间</view>
+          <view class="price" style="{{detail.create_datetime ? 'color:#333; font-size:32rpx;':''}}">{{myTime.forMat(detail.create_datetime,2)}}</view>
+        </view>
+        <view class="item">
+          <view class="title">备注信息</view>
+          <view class="price" style="{{detail.remark ? 'color:#333; font-size:32rpx;':''}}">{{detail.remark}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="orderDetail">
+    <view class="header">订单明细</view>
+    
+    <view class="item">
+      <text class="title">数量</text>
+      <text class="price">{{detail.num}}<text wx:if="{{detail.unit != null}}">{{detail.unit}}</text></text>
+    </view>
+    <!-- <view class="item">
+      <text class="title">单价</text>
+      <text class="price">-￥{{detail.price_discount/100}}</text>
+    </view> 
+    <view class="item">
+      <text class="title">服务价格</text>
+      <text class="price">￥{{detail.price_total/100}}</text>
+    </view>
+    <view class="item">
+      <text class="title">礼券</text>
+      <text class="price">-￥{{detail.price_discount/100}}</text>
+    </view>
+    <view class="item">
+      <text class="title">实付金额</text>
+      <text class="price">￥{{detail.price_pay/100}}</text>
+    </view>
+  </view> -->
+  <!--  -->
+  <view class="orderAttr" wx:if="{{detail.orderStatus == 'done'}}">
+  <!--已完成  -->
+    <button class="okAlgin" data-id="{{detail.product_id}}" data-skuid="{{detail.proSku_id}}" data-orderid="{{detail.pay_order_id}}" bindtap="goToDetail">再次购买</button>
+    <button wx:if="{{!detail.isEvaluate}}" class="ok ml13" bindtap="goToStore">去点评</button>
+  </view>
+  <view class="orderAttr"  wx:if="{{detail.orderStatus == 'cancel'}}">
+    <button class="okAlgin" data-id="{{detail.product_id}}" data-skuid="{{detail.proSku_id}}" data-orderid="{{detail.pay_order_id}}"  bindtap="goToDetail">再次购买</button>
+  </view>
+  <view class="orderAttr" wx:if="{{detail.orderStatus  == 'waitPay'}}" >
+  <!--待支付  -->
+    <button class="cancel mr13" bindtap="cancelOrder">取消订单</button>
+    <button class="ok" bindtap='payNow'>立即支付</button>
+  </view>
+  <view class="orderAttr" wx:if="{{detail.orderStatus  == 'waitService'}}">
+    <!--待服务  -->
+    <button class="cancel mt30" bindtap="cancelOrder">取消订单</button>
+    <button class="okAlgin ml13" bindtap="goToDetail" data-id="{{detail.product_id}}" data-skuid="{{detail.proSku_id}}">再次购买</button>
+    <button class="ok ml13" wx:if="{{detail.orderStatus=='waitService' && detail.serviceStatus =='leave' }}" bindtap="okOrder" data-url="/pages/cancel/cancel" >确认完成</button>
+  </view>
+</view>

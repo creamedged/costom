@@ -1,0 +1,12 @@
+/* pages/login/login.wxss */
+.container{margin: 0 30rpx;}
+.errorTip{text-align: center; color:#f00; margin:30rpx 0 30rpx; height: 50rpx; font-size:26rpx;}
+.phone,.adCode{color:#727171; font-size:30rpx; border-bottom:1rpx solid #c7c7cc; overflow: hidden; padding:0 10rpx; position: relative}
+.phone .title,.adCode .title{line-height: 100rpx; float:left}
+.phone input{ position: absolute; left:130rpx; top:26rpx; right:20rpx}
+.adCode .getCode{float:right; border:1rpx solid #00a0e9; width:240rpx; height:60rpx; text-align: center; font-size:24rpx; line-height: 60rpx; border-radius:30rpx; margin-top:15rpx; }
+.adCode .noCOde{border:#f1f1f1 1px solid; color:#999; background:#f1f1f1;}
+.adCode input{position:absolute; left:130rpx; right:270rpx; top:26rpx;}
+.noSubBtn{background: #00a0e9; color:rgba(255, 255, 255, 1); width:430rpx; height:92rpx; margin:90rpx auto 30rpx; text-align: center; line-height: 90rpx; border-radius:8rpx;}
+.protocol{color:#727171; text-align: center; font-size:20rpx;}
+.protocol text{color:#c2a46a}

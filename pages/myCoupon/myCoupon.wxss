@@ -1,0 +1,16 @@
+/* pages/coupon/coupon.wxss */
+.container{padding:30rpx; padding-top:0px;} 
+.template{width:100%; height:371rpx; overflow: hidden; margin-top:30rpx; position: relative;}
+.template .bg{position: absolute; top:0px; left:0px; right:0px;  display: block; width:100%; height: 100%; z-index: 2;} 
+.template .contentBox{position: absolute; top:0px; left:0px; right:0px; bottom:0px; z-index: 5}
+.couponTitle{text-align: center; padding-top:30rpx; padding-bottom:25rpx;}
+.couponTitle text{display: block; color:#727171;}
+.couponTitle .nameCh{font-size:34rpx; overflow: hidden; line-height: 36rpx;}
+.couponTitle .nameEn{font-size:20rpx; overflow: hidden; line-height: 25rpx;}
+
+.content{text-align: center; color:#ddbf5d; line-height: 128rpx; font-size:100rpx; padding:15rpx 0}
+.content text{font-size:30rpx; margin-left:20rpx;}
+.footer{overflow: hidden; color:#727171; font-size:24rpx; padding:15rpx 45rpx; line-height: 50rpx;}
+.footer .term{font-size:24rpx;}
+/* .footer .term text{color:#f00} */
+.couponBtn{width:100%; text-align: center; line-height: 100rpx; height: 100rpx; color:#fff; background:#00a0e9;  font-size:34rpx; position: fixed; bottom:0px; left:0px;}

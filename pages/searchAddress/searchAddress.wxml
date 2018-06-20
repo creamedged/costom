@@ -1,0 +1,53 @@
+ <view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">搜索地址</view>
+</view>
+
+ <view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="search">
+    <view class="city">
+      <image class="cityIcon" src="../../images/addressIcon.png"></image>
+      <text>{{cityName}}</text>
+      <image src="../../images/addressSelect.png" class="citySelect"></image> 
+    </view>
+     <view class="Keywords"><input type="text" bindinput='custom' placeholder='输入您的小区名称或街道名等'></input></view> 
+  </view>
+  <!-- <view class="location">
+    <view class="title">
+      <image src="../../images/dw.png"></image>
+      <text>定位地址</text>
+    </view>
+    <view class="content">
+      <view class="refresh" bindtap="openTips">
+        <image src="../../images/wz.png"></image>
+        <text>重新定位</text>
+      </view>
+      <view class="name">{{addressName}}</view>
+    </view>
+  </view> -->
+  <view class="searchList">
+    <!-- <view class="title"><image src="../../images/fj.png"></image><text>附近地址</text></view> -->
+
+     <view class="noData" wx:if="{{noData}}">
+      <image src="../../images/noData.jpg"></image>
+      <text>{{noDataText}}</text>
+    </view>
+    <view class="list">
+      <view class="locationAddress" wx:for="{{nearbyList}}" wx:key="{{index}}" data-index="{{index}}" wx:if="{{index ==0}}" bindtap="goToOrder">
+        <image src="../../images/addressIconSelected.png"></image>
+        <view class="header">
+          <view class="name">{{item.name}}</view>
+          <view class="content">{{item.address}}</view>
+        </view>
+      </view>
+      <view class="item" wx:for="{{nearbyList}}" wx:key="{{index}}" data-index="{{index}}" wx:if="{{index>0}}" bindtap="goToOrder" >
+        <view class="name">{{item.name}}</view>
+        <view class="content">{{item.address}}</view>
+      </view>
+    </view> 
+  </view>
+</view> 
+<view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? 'c-state1' : ''}}">
+</view>

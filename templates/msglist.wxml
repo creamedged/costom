@@ -1,0 +1,118 @@
+<wxs src="msglist.wxs" module="tools" />
+<!--首页列表  -->
+<template name="msgItem">
+   <view class="listItem {{index%2==0?'aLeft':'aRight'}}" data-id="{{item.product_id}}" bindtap="getIndex">
+    <image mode="aspectFill" src="{{item.image_first}}" title="">{{item.seo}}</image>
+    <view class="listNews">
+      <view class="newsTitle">
+        <view class="title">{{item.name}}</view>
+      </view>
+      <view class="itemPrice">
+        <text class="money">￥</text><text class="priceAll">{{item.price_first/100}}起</text>
+        <!-- <view class="oldPrice"><text>￥{{item.pricev_first/100}}</text></view> -->
+        <!-- <image class="buy" src="../../images/buy.png"></image>  -->
+        <text class="order">{{item.base_buyed || '0'}}人预约</text>
+      </view>
+    </view>
+  </view> 
+</template>
+
+<!--首页修改列表  -->
+<template name="indexItem">
+  <view class="indexitem" data-id="{{item.product_id}}" bindtap="getIndex">
+    <view class="imgBox">
+      <image src="{{item.lite_image}}" alt=""></image>
+    </view>
+    <view class="contentIndex">
+      <view class="title">{{item.name}}</view>
+      <view class="footer">
+        <view class="explain">{{item.descript}}</view>
+        <view class="discount" wx:if="{{item.have}}">
+          <view class="discountType">券</view>
+          <view class="discountContent">{{item.coupon_name}}</view>
+        </view>
+      </view>
+      <view class="itemPrice">
+        ￥<text class="priceAll">{{item.price_first/100}}<text wx:if="{{item.unit}}">/{{item.unit}}</text></text>
+        <view class="company" wx:if="{{item.pricev_first}}">￥<text>{{item.pricev_first/100}}</text></view>
+      </view>
+    </view>
+    <view class="make">{{item.base_buyed || '0'}}人预约</view>
+  </view>
+</template>
+
+
+<!--优惠券  -->
+<template name="couponList">
+  <view wx:if="{{isMine}}" class="template" bindtap="selected" data-id="{{item.coupon_receive_id}}">
+    <image class="bg" wx:if="{{!item.expire}}" src="../../images/mine_coupon.png"></image>
+    <image class="bg" wx:else src="../../images/couponOld.png"></image>
+    <view class="contentBox">
+      <view class="couponTitle">
+        <text class="nameCh">{{item.name}}</text>
+        <text class="nameEn">有效期{{tools.forMat(item.useStartTime)}}到{{tools.forMat(item.useEndTime)}}</text>
+      </view>
+      <view class="content">
+        {{item.value/100}}<text>{{item.unit}}</text>
+      </view>
+      <view class="footer">
+        <view class="term">
+          <text>*</text>{{item.condition}}
+        </view>
+      </view>
+      <!-- <view class="aRight time">有效期{{tools.subTime(item.useStartTime)}}到{{tools.subTime(item.useEndTime)}}</view> -->
+    </view>
+  </view>
+  <view wx:else class="template" bindtap="selected" data-id="{{item.coupon_receive_id}}"> 
+    <image wx:if="{{couponId == item.coupon_receive_id}}" class="bg" src="../../images/couponActive.png"></image>
+    <image wx:else class="bg" src="../../images/coupon.png"></image>
+    <view class="contentBox">
+      <view class="couponTitle">
+        <text class="nameCh">{{item.name}}</text>
+        <text class="nameEn">有效期{{tools.forMat(item.useStartTime)}}到{{tools.forMat(item.useEndTime)}}</text>
+      </view>
+      <view class="content">
+        {{item.value/100}}<text>{{item.unit}}</text>
+      </view>
+      <view class="footer">
+        <view class="term">
+          <text>*</text>{{item.condition}}
+        </view>
+      </view>
+      <!-- <view class="aRight time">有效期{{tools.subTime(item.useStartTime)}}到{{tools.subTime(item.useEndTime)}}</view> -->
+    </view>
+  </view>
+</template>
+
+<!--地址列表  -->
+<template name="addressList">
+  <view class="addressItem {{isSelected == item.customer_address_id && !isMine?'itemActive':''}}"  wx:key="{{index}}">
+    
+    <view class="addressContent" bindtap="selectAddress" data-id="{{item.customer_address_id}}">
+      <!-- <view class="editerBox" bindtap="goToAttr" data-nid="{{item.customer_address_id}}" data-type="1">
+        <image class="editer" src="../../images/editer.png"></image>
+      </view> -->
+        <!-- <view class="addressIcon" wx:if="{{!isMine}}" >
+          <image wx:if="{{isSelected == item.customer_address_id}}" src="../../images/radioActive.png"></image>
+          <image wx:else src="../../images/radio.png"></image>
+        </view> -->
+        <view class="namePhone"><text>{{item.username}}</text><text>{{item.phone}}</text></view>
+        <view class="myAddress">{{item.address}}{{item.sub_address}}</view>
+    </view>
+    <view class="addressFooter">
+      <view class="default overflow" wx:if="{{saveDefault == item.customer_address_id}}">
+        <image src="../../images/couponSelected.png"></image>
+        <text class="defaultAdress">默认地址</text>
+      </view>
+      <view class="default overflow" data-id="{{item.customer_address_id}}" bindtap="setDefault" wx:else>
+        <image src="../../images/couponDefault.png"></image>
+        <text>设置为默认地址</text>
+      </view>
+      <view class="attr">
+        <view class="editer" bindtap="goToAttr" data-nid="{{item.customer_address_id}}" data-type="1"><image src="../../images/editerIcon.png"></image><text>编辑</text></view>
+        <view class="del" bindtap="delAddress"  data-nid="{{item.customer_address_id}}"><image src="../../images/delIcon.png"></image><text>删除</text></view>
+      </view>
+    </view>
+    <view class="line"></view>
+  </view>
+</template>

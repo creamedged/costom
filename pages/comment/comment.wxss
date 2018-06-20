@@ -1,0 +1,20 @@
+/* pages/comment/comment.wxss */
+.container{background:#efeff4;}
+.product{overflow: hidden; display: block; padding:20rpx 30rpx; background: #fff;}
+.product image{width:180rpx; height:180rpx; display: block; float:left;}
+.product view{margin-left:200rpx; margin-top:20rpx;}
+.product view .header{display: block; margin-top:20rpx; font-size:32rpx;}
+.product view .time{display: block; font-size:28rpx; margin-top:40rpx;}
+
+.start{overflow: hidden; background: #fff; padding:20rpx 30rpx;}
+.startHeader{ float:left; width:100rpx;}
+.startList{overflow: hidden; background: #fff; margin-left:100rpx;}
+.startList image{width:45rpx; height:45rpx; display: block; float:left;}
+
+
+.startContent{background: #fff; overflow: hidden; padding:20rpx 30rpx;}
+.startContent .header{float: left; width:100rpx;}
+.startContent .area{margin-right:30rpx; overflow: hidden; margin-left:100rpx;}
+.startContent .area textarea{ width:92%; font-size:28rpx; height: 150rpx; padding:20rpx; border:1px solid #f1f1f1; margin-right:30rpx;}
+
+.subScore{background: #00a0e9; color:#fff; font-size:34rpx; width:250rpx; display: block; margin:50rpx auto 0;}

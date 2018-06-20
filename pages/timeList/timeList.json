@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "calendar-picker": "/components/calendarPicker/calendarPicker"
+  },
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false
+}

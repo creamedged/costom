@@ -1,0 +1,27 @@
+/* pages/addEditer/addEditer.wxss */
+.container{background:#f2f2f2; position:fixed; bottom:0px; top:0px; right:0px; left:0px;}
+.itemStyle{border-top:1rpx solid #eeeeee; padding:34rpx 20rpx 34rpx; background: #fff; position:relative;font-size:28rpx; overflow: hidden;}
+.addressStyle{padding:32rpx 20rpx;}
+.title{color:#333; font-size:28rpx; width:153rpx; float:left; padding-top:7rpx;}
+.placeStyle{font-size:28rpx; color:#aaaaaa}
+
+.content{font-size:26rpx; margin-left:153rpx; line-height: 40rpx; color:#000}
+.content input{font-size:28rpx; color:#333}
+.selectAddress{ position: absolute; right:20rpx; top:34rpx; border-left:1px solid #f3f3f3; padding-left:17rpx;}
+.selectAddress image{display: block;width:30rpx; height: 30rpx; margin:0 auto;}
+.selectAddress view{font-size:14rpx; color:#0f83f2; margin-top:5rpx;}
+.goToAdd{  margin:7rpx 100rpx 0rpx 173rpx;}
+.default{padding:20rpx 30rpx;}
+.default .title{ width:200rpx; line-height: 70rpx;}
+.default .switch{float: right;}
+
+/* .addressAttr{position: fixed; bottom:0px; height: 98rpx; background: #f00; width: 100%; overflow: hidden; border-top:2px solid #00a0e9}
+.addressAttr view{border-radius:0px;width:50%;border:none; height: 98rpx; text-align: center; line-height: 98rpx; font-size:34rpx;}
+.addressAttr .save{position: fixed; bottom:0px; height:80rpx; line-height:75rpx; background: #4396e9; color:#fff; border-radius:15rpx; left:0px; right:0px; margin:30rpx;} */
+.save{position: fixed; bottom:0px; height:80rpx; line-height:75rpx; background: #4396e9; color:#fff; border-radius:15rpx; left:0px; right:0px; margin:30rpx;font-size:32rpx}
+
+.errorTip{color:#f00; text-align: center; line-height: 50rpx; margin-top:50rpx; font-size:26rpx;}
+.address_add{position: fixed; bottom:0px; height:80rpx; line-height:75rpx; background: #4396e9; color:#fff; border-radius:15rpx; left:0px; right:0px; margin:30rpx;}
+.delNumIconBox{float:right;margin-top:-40rpx;}
+.delNumIconBox .delNumIcon{width:25rpx; height: 25rpx; }
+

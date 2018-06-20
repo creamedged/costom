@@ -1,0 +1,20 @@
+<wxs src="setPass.wxs" module="tools" />
+<view class="phoneBox {{isIphoneX?'headerIphonex':''}}">
+  <text>当前手机号</text>
+  <view>{{tools.phoneReplace(phone)}}</view>
+</view> 
+<view class="phoneCode {{isIphoneX?'containerIphoneX' :''}}">
+  <text>短信验证码</text>
+  <input bindinput='inputCode' value="{{code}}" placeholder='输入验证码'></input>
+  <text class="timeCode" bindtap='getCode'>{{codeTxt}}</text>
+</view>
+<view class="phoneBox">
+  <text>新密码</text>
+  <input value="{{pass}}" bindinput='getPass' placeholder='密码为6-20位字母、数字组合'></input>
+</view> 
+<view class="phoneBox">
+  <text>确认密码</text>
+  <input placeholder='再次输入新密码' value="{{copypass}}" bindinput='passTow' ></input>
+</view> 
+<view class="errorTip">{{errorTip}}</view>
+<view class="phoneNex" bindtap='nextBtn'>确认</view>

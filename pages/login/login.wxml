@@ -1,0 +1,21 @@
+ <view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">登录</view>
+</view> 
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="errorTip">{{errorTip}}</view>
+  <view class="phone">
+    <text class='title'>手机号：</text>
+    <input type='number' bindinput='getPhone' value="{{phone}}" placeholder-style="color:#c9caca; font-size:24rpx;" placeholder='请输入手机号'></input>
+  </view>
+  <view class="adCode mt30">
+    <text class='title'>验证码：</text>
+     <input type='number' placeholder-style="color:#c9caca; font-size:24rpx;" bindinput="getCode" value="{{code}}" placeholder='请输入验证码'></input> 
+    <text class="getCode {{isGetCode?'':'noCOde'}}" bindtap='getAjaxCode'>{{btnText}}</text>
+  </view>
+  <button class="noSubBtn" bindtap="login" >登录/注册</button>
+  <!-- <button class="noSubBtn" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" disabled="{{isDisabled}}"></button> -->
+  <view class="protocol">注册登录，即同意  <navigator url="/pages/agreement/agreement"><text>《浦尔家用户协议》</text></navigator> </view>
+</view>

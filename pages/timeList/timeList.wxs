@@ -1,0 +1,13 @@
+var weeks = ['周日', '周一','周二','周三','周四','周五','周六'];
+var getWeek = function(str){
+  var date=getDate(str);
+  return weeks[date.getDay()];
+}
+var tiemFormate =function(str){
+  var arr=str.split('-');
+  return arr[1]+'月'+arr[2]+'日'
+}
+module.exports={
+  getWeek:getWeek,
+  tiemFormate:tiemFormate
+}

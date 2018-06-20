@@ -1,0 +1,74 @@
+/**app.wxss**/
+/*浮动  */
+.aLeft{float:left!important;}
+.aRight{float:right!important}
+.overflow{overflow:hidden}
+.mt30{margin-top:30rpx;}
+.pl30{padding-left:30rpx;}
+.ml30{margin-left:30rpx;}
+.ml13{margin-left:13rpx;}
+.mr13{margin-right:13rpx;}
+.plr30{padding:0 30rpx;}
+.mr30{margin-right:30rpx;}
+.relative{position: relative}
+.mt50{margin-top:50rpx;}
+/*公用头部样式  */
+.container{margin-top:64px!important}
+.containerIphoneX{margin-top:85px!important}
+.headerBox{background: #fff; height:64px; z-index: 9999999; position: fixed; width:100%; top:0px; overflow: hidden;}
+.headerBox .imgBox{width:100rpx; height: 44px; padding:36rpx 0 0 0rpx;}
+.headerBox .header_content{position: absolute; right:0px; left:0px; top:0px; bottom:5px; text-align: center; color:#222; font-weight: bolder; font-size:34rpx; margin-top:20rpx; margin-left:150rpx; margin-right:150rpx; line-height: 60px;}
+.headerBox image{width:71rpx;height:71rpx;}
+.headerIphonex{height:150rpx; padding-top:20rpx;}
+.headerIphonex .imgBox{margin-top:35rpx;}
+.headerIphonex .header_content{top:50rpx;}
+
+/*暂无数据样式 */
+.noData{text-align: center; padding-top:100rpx; background: #fff;}
+.noData text{display: block; padding-bottom:30rpx; font-size:30rpx; color:#939393}
+.noData image{width:176rpx; height:151rpx;}
+
+/*loading样式  */
+.loading{background: #fff; padding:90rpx 0 100rpx}
+.loading image{width:50rpx; height:50rpx; display:block; margin:0rpx auto;}
+
+/*列表公用样式  */
+.listItem{width:365rpx; background: #fff; margin-bottom:15rpx;}
+.listItem image{width:365rpx; display: block; margin:0 auto; height:365rpx;}
+.listItem .listNews{padding:0 20rpx; }
+.listNews .newsTitle{color:#000; overflow: hidden; padding:27rpx 0;}
+.listNews .newsTitle .title{font-size:30rpx; color:#000;  overflow: hidden;text-overflow:ellipsis;white-space: nowrap; }
+/* .listNews .newsTitle .order{font-size:22rpx; color:#b7bbc1; float: right; margin-top:10rpx;} */
+.listNews .itemPrice{overflow: hidden; font-size:24rpx; margin:0rpx 0 10rpx;}
+.listNews .itemPrice .money{color:#00a0e9; font-size:24rpx;}
+.listNews .itemPrice .priceAll{color:#00a0e9; font-size:34rpx;}
+
+.listNews .itemPrice .oldPrice{font-size:22rpx; display: inline; color:#b7bbc1; margin-left:15rpx;}
+.listNews .itemPrice .oldPrice text{text-decoration:line-through; }
+.listNews .itemPrice .order{overflow: hidden; height: 35rpx; float: right; margin-top:10rpx;}
+.listNews .itemOrder{text-align: right; color:#999; font-size:24rpx;}
+
+/*  首页列表第二条  */
+
+.indexitem{overflow: hidden; padding:20rpx 20rpx 23rpx; background: #fff; position: relative; border-bottom:1px solid #f4f4f4}
+.indexitem .imgBox{width:181rpx; height: 181rpx; float: left;}
+.indexitem .imgBox image{width:100%; height:100%;}
+
+.indexitem .contentIndex{margin-left:201rpx; height: 181rpx; position: relative;}
+.contentIndex .title{font-size:32rpx; color:#333; line-height:32rpx;font-weight:bold}
+.contentIndex .explain{font-size:24rpx; line-height: 32rpx; color:#939393;  overflow: hidden;text-overflow:ellipsis; white-space: nowrap;}
+.contentIndex .discount{overflow: hidden;}
+.discount .discountType{border:1px solid #ffaa24; font-size:16rpx; text-align: center; color:#ff9e05; display:block; float:left; width:25rpx; height: 25rpx; line-height: 25rpx; border-radius: 3px;}
+.discount .discountContent{ border:1px solid #dedede; border-radius: 3px; font-size:18rpx; color:#939393; height: 25rpx;line-height: 25rpx; display:block; float:left; margin-left:10rpx; padding:0 5rpx;}
+
+.contentIndex .footer{margin-top:10rpx;}
+/* .contentIndex .order{overflow: hidden; color:#9a9a9a; line-height:22rpx; font-size:22rpx; margin-bottom:60rpx; } */
+/* .contentIndex .order image{width:22rpx; height:22rpx; float:left; margin-right:15rpx;} */
+.contentIndex .itemPrice{color:#ff3b30;font-size:24rpx; line-height: 32rpx; margin-top:11rpx;position: absolute; bottom:-4rpx; left:0px; right:0px;}
+.contentIndex .itemPrice .company{font-size:14rpx; color:#a3a3a3; margin-left:10rpx; display: inline-block;  line-height: 30rpx;}
+.contentIndex .itemPrice .company text{font-size:24rpx; color:#a3a3a3; text-decoration: line-through;}
+
+.contentIndex .itemPrice .priceAll{font-size:40rpx; color:#ff3b30; line-height:30rpx;font-weight:bold}
+.contentIndex .itemPrice .priceAll text{margin-left:3rpx;font-size:18rpx; color:#939393;}
+.indexitem .make{ position: absolute; right:20rpx; bottom:18rpx; font-size:22rpx; color:#939393; }
+button::after{border: 0;}

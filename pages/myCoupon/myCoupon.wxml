@@ -1,0 +1,24 @@
+<import src="../../templates/msglist" />
+<wxs src="myCoupon.wxs" module="tools" />
+<view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">我的优惠券</view>
+</view>
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view wx:if="{{isLoading}}" class="loading">
+    <image src="../../images/loading.gif"></image>
+  </view>
+  <view class="noData" wx:if="{{noData}}">
+    <image src="../../images/noData.jpg"></image>
+    <text>暂无优惠券可用</text>
+  </view>
+    
+  <view wx:else style="padding-top:20rpx;">
+    <block wx:for="{{couponList}}" wx:key="{{index}}">
+      <template is="couponList" data="{{item,index,couponId,isMine}}" />
+    </block>
+    <!-- <navigator src="/pages/index/index"><view class="couponBtn">立即使用</view></navigator> -->
+  </view>
+</view>

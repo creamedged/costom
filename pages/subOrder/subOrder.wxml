@@ -1,0 +1,114 @@
+<wxs src="../../templates/msglist.wxs" module="tools" />
+<view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view  class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">提交订单</view>
+</view> 
+<view class="tips" wx:if="{{isTips}}">
+  <view class="tipsBox">
+    <image src="../../images/tixing.png"></image>
+    <text>{{tipsContent}}</text>
+  </view>
+</view>
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+<view class="productDetail">
+  <!-- <view class="orderNumber">订单号：{{}}</view> -->
+  <view class="orderDetail">
+     <view class="imgBox"><image src="{{imgUrl}}"></image></view>
+     <view class="orderContent">
+        <view class="orderTitle">{{productName}}-{{skuName}}</view>
+        <view class="orderPrice">￥{{price/100}}<text wx:if="{{unit != ''}}">/{{unit}}</text></view>
+        <view class="buyNum" wx:if="{{term.buy_multiple == 1}}">
+          <view class="changeNum">
+            <view class="aLeft reduceBox" bindtap="countRedut">
+              <image class="reduce" src="../../images/reduce.png"></image>
+            </view>
+            <input class="num aLeft" value="{{count}}" placeholder='0' bindblur="countChange" ></input>
+            <view class="aLeft addBox" bindtap="countAdd">
+              <image class="add" src="../../images/add.png"></image>
+            </view>
+          </view>
+        </view> 
+     </view>
+  </view>
+</view>
+  <!-- <view class="addressBox" wx:if="{{isAddress}}"> -->
+  <view class="addressBox" bindtap="goToAddress">
+   <view class="icon_address" wx:if="{{isAddress}}"><image src="../../images/addressIconSelected.png"></image></view>
+   <view class="icon_address" wx:else><image src="../../images/addressIcon.png"></image></view>
+    <view class="address">
+       <view wx:if="{{userName}}">
+        <view class="namePhone">
+          <text>{{userName}}</text>
+          <text>{{phone}}</text>
+        </view>
+        <view>{{address}}</view>
+      </view>
+      <view wx:else class="defaultNewsSet">选择服务地址</view>
+      <image class="moreIcon" src="../../images/more.png"></image>
+    </view>
+  </view>
+
+  <view class="borderBottom setTime" bindtap="goToTime">
+    <view class="icon_time" wx:if="{{time != ''}}"><image src="../../images/timeIconSelected.png"></image></view>
+    <view class="icon_time" wx:else><image src="../../images/timeIcon.png"></image></view>
+    <view class="timeContent defaultNewsSet">
+      <text class="time defaultNewsSet" style="{{time.showTime ? 'color:#333; font-size:32rpx;':''}}">{{time.showTime || '选择服务时间'}}</text>
+      <image class="aRight moreIcon" src="../../images/more.png"></image>
+    </view>
+  </view>
+
+  <view class="borderBottom coupon" bindtap="hideDolog">
+    <view class="icon_coupon" wx:if="{{couponIcon}}"><image src="../../images/couponIconSelected.png"></image></view>
+    <view class="icon_coupon" wx:else><image src="../../images/couponIcon.png"></image></view>
+    <view class="couponContent defaultNewsSet">
+      <view class="title">{{couponNews.name||'选择优惠券'}}</view>
+      <view class="discount" wx:if="{{allPrice.discountPrice}}">减{{allPrice.discountPrice/100}}元</view>
+      <image class="aRight moreIcon" src="../../images/more.png"></image>
+    </view>
+  </view>
+
+  <view class="borderBottom noteBox">
+    <view class="icon_note" wx:if="{{noteIcon}}"><image src="../../images/noteIconSelected.png"></image></view>
+    <view class="icon_note" wx:else><image src="../../images/noteIcon.png"></image></view>
+    <view class="textarea" wx:if="{{actionSheetHidden}}">
+      <textarea placeholder='请输入备注信息' placeholder-style='color:#aaaaaa; font-size:28rpx;'  value="{{remark}}" maxlength="200" bindinput='remarkTxt'></textarea>
+    </view>
+  </view>
+  <view class="submitBtnBox">
+    <view class="subPrice">￥{{allPrice.payPrice/100}}<text wx:if="{{couponNews.name}}">￥{{allPrice.totalPrice/100}}</text></view>
+    <button class="submitBtn" bindtap='submitBtn' disabled="{{isDisabled}}">提交订单</button>
+  </view>
+</view>
+<action-sheet hidden="{{actionSheetHidden}}" catchtap="hideDolog" style="overflow:auto;background:#fff; z-index:999; padding-bottom:100rpx;position:relative;">
+  <view class="fnFasl" style=''>
+    <view class="title" catchtap='selecteCoupon'>优惠详情</view>
+    <view style="overflow:auto; padding:0 20rpx 140rpx; max-height:500rpx; "  catchtap='selecteCoupon' >
+
+      <view class="item" catchtap="selecteCoupon" data-index="{{index}}" data-id="{{item.coupon_receive_id}}" wx:for="{{couponList}}" wx:key="{{index}}">
+        <view class="header"><text>{{item.name}}</text></view>
+        <view class="time">{{tools.forMat(item.useStartTime)}}到{{tools.forMat(item.useEndTime)}}</view>
+        <view class="note">{{item.condition}}</view>
+        <view class="couponIcon">
+          <image wx:if="{{selectCouponIndex == item.coupon_receive_id}}" src="../../images/couponSelected.png"></image>
+          <image wx:else src="../../images/couponDefault.png"></image>
+        </view>
+      </view>
+
+      <view class="item" catchtap="selecteCoupon" data-index="no" data-id="no">
+        <view class='header' style="color:#333">不使用</view>
+        <view class="couponIcon">
+          <image wx:if="{{selectCouponIndex == 'no'}}" src="../../images/couponSelected.png"></image>
+          <image wx:else src="../../images/couponDefault.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="skuBtnBox">
+      <button class='skuBtn' bindtap='selectedCouponBtn'>确定</button>
+    </view>
+  </view>
+   <!-- <action-sheet-cancel class="skuBtn" catchtap="skuBtn" data-id="{{detailData.product_id}}">
+    <view>确定</view>
+  </action-sheet-cancel>  -->
+</action-sheet>

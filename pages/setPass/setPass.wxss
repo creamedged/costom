@@ -1,0 +1,15 @@
+/* pages/checkPhone/checkPhone.wxss */
+.phoneBox{overflow: hidden; position: relative; margin:0rpx 40rpx 0; padding:30rpx 0px; border-bottom:1px solid #c7c7cc}
+.phoneBox text{color:#727171; font-size:30rpx; float:left;}
+.phoneBox view{ line-height: 50rpx; font-size:34rpx; margin-left:180rpx; }
+.phoneBox input{position:absolute; left:0px; right:0px; bottom:0px; top:0px; margin-left:180rpx; font-size:30rpx; margin-top:20rpx;}
+
+.phoneCode{overflow: hidden; position:relative; margin:0 40rpx; padding:27rpx 0px; border-bottom:1px solid #c7c7cc}
+.phoneCode text{color:#727171; font-size:30rpx; float:left; display: inline-block; line-height: 60rpx; }
+.phoneCode input{position: absolute; left:0px; top:0px; right:0px; bottom:0px; margin-left:180rpx; font-size:30rpx; margin-right:300rpx; margin-top:32rpx;}
+.phoneCode .timeCode{border:1px solid #c9caca; font-size:24rpx; text-align: center; height: 60rpx; width:240rpx; display: block;  float:right;line-height: 60rpx; border-radius:30rpx;}
+.phoneNex{background:#00a0e9; color:#fff; font-size:34rpx; width:430rpx; height:90rpx; text-align: center; line-height: 90rpx; margin:156rpx auto 0; border-radius:45rpx;}
+
+.errorTip{display:block; text-align: center; margin-top:30rpx; height: 50rpx; color:#f00; font-size:28rpx;}
+.note{overflow: hidden; font-size:24rpx; color:#727171; padding:0 30rpx; margin-top:96rpx;}
+.note text{font-size:24rpx; color:#727171}

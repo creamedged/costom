@@ -1,0 +1,32 @@
+/* pages/order/order.wxss */
+.tab{height: 89rpx; line-height: 82rpx;  position: fixed; width: 100%; background: #fff; z-index: 10; }
+.tab view{color:#000; font-size:28rpx; width:20%; text-align: center; display:block; float:left; height: 89rpx;}
+
+.tab .active{color:#6faef8;font-weight: bold}
+.tab .active text{ border-bottom:3px solid #6faef8; padding-bottom:12rpx;}
+.line{border-bottom:3px solid #6faef8;height: 5rpx; position: absolute; bottom:-1rpx; border-radius:5rpx; transition: 0.3s all;}
+.list{background:#efeff4; padding-top:83rpx;}
+.item{ background: #fff;}
+.item .header { overflow: hidden; height: 80rpx; line-height: 80rpx; font-size:28rpx; background: #fff; padding:0 20rpx; }
+
+.item .header .orderAsh{color:#939393; float:right;}
+.item .header .orderType,.item .header .orderServiece{color:#939393; float:right;}
+.item .header .orderNum{color:#939393;float:left; }
+.item .content{overflow: hidden; padding:20rpx 20rpx 24rpx; background: #f9f9f9;}
+.item .content image{width:180rpx; height: 180rpx; display: block; float:left;}
+.item .content .orderNews{margin-left:203rpx; padding-top:10rpx; position:relative; height: 180rpx;}
+.item .content .orderNews .more{position:absolute; right:30rpx; top:30rpx; width:30rpx; height: 30rpx;}
+.item .content .name{font-size:32rpx;}
+.item .content .time{font-size:28rpx; color:#333;overflow: hidden; margin:10rpx 0 25rpx;}
+.item .content .price{font-size:36rpx; color:#f00; position: absolute; bottom:0px; }
+
+.item .footer{overflow: hidden; padding:0rpx 20rpx; height: 76rpx;}
+.item .footer .price{float:left; margin-top:15rpx;}
+.item .footer .price .priceNum{font-size:34rpx; color:#ff3b30; float:left;font-weight: bold}
+.item .footer .price .couponNote{display:block; border:1px solid #d3d3d3; padding:0 6rpx; font-size:18rpx; color:#939393; float:left; margin:10rpx 0 0 10rpx }
+.item .footer .orderAttr{float:right; margin-top:11rpx;}
+.item .footer .ashBtn{border:1px solid #c6c6c6; font-size:24rpx; padding:0rpx; width:147rpx; height:54rpx; color:#333333; display: inline-block; background: #fff;  line-height: 54rpx; border-radius:54rpx;}
+
+.item .footer .ashBtnAlgin{color: #ff9e05; border-radius:54rpx; display: inline-block; font-size:24rpx; border:1rpx solid #ffcf82;  width:147rpx; height: 54rpx; line-height: 54rpx; background: #fff; padding:0px;}
+.item .footer .blueBtn{background: #ff9e05; padding:0; width:147rpx; line-height: 54rpx; border-radius:54rpx; height: 54rpx; font-size:24rpx; display: inline-block; color:#fff}
+.item .cutOffRule{height: 20rpx; width:100%; background:#f2f2f2}

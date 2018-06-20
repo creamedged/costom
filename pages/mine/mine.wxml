@@ -1,0 +1,39 @@
+<wxs src="mine.wxs" module="tools" />
+<view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="header_content">我的</view>
+</view>
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="item" bindtap="goToUrl" data-key="phone">
+    <text class="title">更换手机号</text>
+    <text class="num">{{tools.phoneReplace(phone)}}</text>
+    <image class="more" src="../../images/more.png"></image>
+  </view>
+  <!-- <view class="item" bindtap="goToUrl" data-key="password">
+    <text class="title">登录密码</text>
+    <image class="more" src="../../images/more.png"></image>
+  </view> -->
+  <!-- <view class="item" bindtap="goToUrl" data-key="account">
+    <text class="title">我的账户</text>
+    <image class="more" src="../../images/more.png"></image>
+  </view> -->
+  <view class="item" bindtap="goToUrl" data-key="coupon">
+    <text class="title">我的卡券</text>
+    <image class="more" src="../../images/more.png"></image>
+  </view>
+  <view class="item" bindtap="goToUrl" data-key="address">
+    <text class="title">我的地址</text>
+    <image class="more" src="../../images/more.png"></image>
+  </view>
+  <view class="item">
+    <text class="title">联系客服</text>
+    <view bindtap='getPhone' data-phone="{{serverNum}}">
+      <text class="num">{{serverNum}}</text>
+      <image class="more" src="../../images/phone.png"></image> 
+    </view>
+  </view>
+  <!--暂时注掉  -->
+  <!-- <view class="item" bindtap="goToUrl" data-key="about">
+    <text class="title">关于我们</text>
+    <image class="more" src="../../images/more.png"></image>
+  </view> -->
+</view>

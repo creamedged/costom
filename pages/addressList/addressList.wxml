@@ -1,0 +1,24 @@
+<import src="../../templates/msglist.wxml"/>
+ <view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">我的地址</view>
+</view> 
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="loading" wx:if="{{isLoading}}">
+    <image src="../../images/loading.gif"></image>
+  </view>
+  <view class="noData" wx:if="{{noData}}">
+    <image src="../../images/noData.jpg"></image>
+    <text>暂无地址数据</text>
+  </view>
+  <view wx:else>
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <template is="addressList" data="{{item,index,isSelected,saveDefault,isMine}}"/>
+    </block>
+  </view>
+  <view class="addressBox">
+    <button class="address_add" data-type="0" bindtap="goToAttr">添加新地址</button>
+  </view>
+</view>

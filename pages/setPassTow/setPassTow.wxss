@@ -1,0 +1,8 @@
+/* pages/checkPhone/checkPhone.wxss */
+.container{padding-top:100rpx;}
+.phoneBox{overflow: hidden; position: relative; margin:0rpx 40rpx 30rpx; padding:27rpx 0px; border-bottom:2px solid #c7c7cc}
+.phoneBox text{color:#727171; font-size:30rpx;}
+.phoneBox input{position:absolute; left:0px; right:0px; bottom:0px; top:0px; margin-left:180rpx; font-size:30rpx; margin-top:32rpx;}
+
+.phoneNex{background:#00a0e9; color:#fff; font-size:34rpx; width:430rpx; height:90rpx; text-align: center; line-height: 90rpx; margin:156rpx auto 0; border-radius:45rpx;}
+

@@ -1,0 +1,60 @@
+/* pages/searchAddress/searchAddress.wxss */
+.container{padding:20rpx 26rpx;}
+
+.search{overflow: hidden; position: relative; height: 54rpx;}
+.search .cityIcon{width:21rpx; height:26rpx; float:left; margin-top:4rpx; margin-right:9rpx;}
+.search .city{float:left; font-size:24rpx; overflow: hidden; color:#98989f; margin:10rpx 10rpx 10rpx 0;  position: relative;}
+.search .city text{float:left;}
+.search .city .citySelect{width:15rpx; height: 9rpx; margin-left:20rpx; margin-right:40rpx; float:left; margin-top:15rpx;}
+.search .Keywords{position: absolute; left:0px; top:0px; background:#f2f2f2; height:54rpx; right:0px; bottom:0px; margin-left:150rpx; border-radius:54rpx; padding:0 35rpx;}
+.search .Keywords input{width:100%; font-size:26rpx; color:#939393; line-height: 54rpx;}
+
+.location,.searchList{margin-top:30rpx;}
+.location .title,.searchList .title{overflow: hidden;}
+
+.location .title image,.searchList .title image{width:30rpx; height: 30rpx; float:left;}
+.location .title text,.searchList .title text{font-size:26rpx; color:#727171; float:left; margin-left:15rpx;}
+.location .content{ margin-left:45rpx; margin-top:25rpx; position:relative}
+.location .content .name{font-size:34rpx; margin-right:160rpx;}
+
+.location .content .refresh{font-size:34rpx; position:absolute; right:0px; top:0px; color:#727171; overflow: hidden; margin-top:5rpx;}
+.location .content .refresh image{width:30rpx; height: 30rpx; float:left; margin-right:15rpx; margin-top:7rpx;}
+.location .content .refresh text{ float:left; font-size:30rpx;}
+
+.searchList .list{}
+.searchList .list .item{color:#010101; font-size:28rpx; border-bottom:1rpx solid #f1f1f1; padding:20rpx 0 25rpx; margin-left:31rpx;}
+.searchList .list .item .name{font-size:28rpx; color:#333;}
+.list .locationAddress{overflow: hidden;}
+.list .locationAddress image{float:left;width:21rpx; height:26rpx; margin-top:8rpx;}
+.list .locationAddress .header{ border-bottom:1rpx solid #f1f1f1; margin-left:31rpx; padding-bottom:25rpx;}
+.list .locationAddress .header .name{color:#0f83f2; font-size:28rpx;}
+.list .locationAddress .header .content,.searchList .list .item .content{color:#939393; font-size:20rpx; margin-top:8rpx;}
+
+.page-top{
+  height: 100%;
+  position: fixed;
+  width: 750rpx;
+  background-color: rgb(57, 125, 230);
+  z-index: 10;
+  top:0px;
+  transition: All 0.4s ease; 
+  -webkit-transition: All 0.4s ease;
+}
+.page-top image{
+  position: absolute;
+  width: 68rpx;
+  height: 38rpx;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+.c-state1{  
+  transform: rotate(0deg) scale(1) translate(100%,0%);   
+  -webkit-transform: rotate(0deg) scale(1) translate(100%,0%);   
+}  
+
+.c-state2{  
+  transform: rotate(0deg) scale(.8) translate(100%,0%);   
+  -webkit-transform: rotate(0deg) scale(.8) translate(100%,0%);   
+} 
+

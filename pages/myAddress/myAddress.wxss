@@ -1,0 +1,29 @@
+/* pages/addressList/addressList.wxss */
+
+.container{padding-bottom:100rpx;}
+.addressItem{ background: #fff;}
+.itemActive{background: #efeff4;}
+.addressListBox{background: #f2f2f2;}
+.line{background:#f2f2f2; height: 20rpx;}
+
+.addressItem .addressContent{overflow: hidden; padding:32rpx 20rpx 42rpx;}
+.addressContent .addressIcon{float:left; width:90rpx;}
+.addressContent .addressIcon image{width:40rpx; height: 40rpx; display: block; margin-top:20rpx;}
+.addressContent .namePhone{color:#333333; font-size:32rpx; padding-bottom:25rpx; line-height: 32rpx;}
+.addressContent .namePhone text{margin-right:40rpx;}
+.addressContent .myAddress{font-size:26rpx; color:#939393;}
+.addressContent .addressBox{margin-left:90rpx;}
+.addressContent .editerBox{width:60rpx; height: 90rpx; float:right;}
+.addressContent .editerBox .editer{width:35rpx; height:35rpx;float:right;}
+.addressItem .addressFooter{padding:0 20rpx; border-top:1rpx solid #f1f1f1; height:70rpx;}
+.addressItem .default{padding:21rpx 0; float:left;}
+.addressItem .default image{width:31rpx; height:31rpx; float:left;}
+.addressItem .default text{color:#939393;  font-size:22rpx; float:left; margin-left:10rpx; margin-top:1rpx;}
+.addressItem .default .defaultAdress{color:#0f83f2; font-size:22rpx;}
+.address_add{position: fixed; bottom:0px; background:#fff; padding:30rpx; left:0px; right:0px;}
+.address_add .addressBtn{background:#4396e9; color:#fff; height: 80rpx; text-align: center; border-radius:10rpx; line-height: 80rpx; font-size:28rpx; width:100%;}
+.address_add .addressBtn image{width:30rpx; height:31rpx;}
+.addressFooter .attr{float:right; margin-top:15rpx;}
+.addressFooter .attr view{float:right; color:#aaaaaa; font-size:22rpx; margin-left:53rpx;}
+.addressFooter .attr view image{width:30rpx; height: 30rpx; float:left;}
+.addressFooter .attr view text{float:left; line-height: 30rpx; margin-left:5rpx;}

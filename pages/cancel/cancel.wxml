@@ -1,0 +1,30 @@
+<!--pages/cancel/cancel.wxml-->
+ <view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">订单取肖</view>
+</view> 
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="header">请告知您的取消原因，我们会努力为您提供更好的服务</view>
+  <view class="content">
+    <view class="item" wx:for="{{reason}}" wx:key="{{index}}" data-index="{{index}}" bindtap="selectIcon">
+      <text class="cancelContent">{{item}}</text>
+      <image class="radioIcon"  wx:if="{{nIndex == index}}" src="../../images/radioActive.png"></image>
+      <image class="radioIcon" wx:else src="../../images/radio.png"></image>
+    </view>
+  </view>
+  <view>
+    <view class="other" data-index="other" bindtap="selectIcon">
+      <text class="cancelContent">其它</text>
+      <image class="radioIcon" wx:if="{{nIndex == 'other'}}" src="../../images/radioActive.png"></image>
+      <image class="radioIcon" wx:else src="../../images/radio.png"></image>
+    </view>
+    <view class="textareaBox" wx:if="{{nIndex == 'other'}}">
+      <textarea bindinput='getOtherContent' placeholder='请输入您的取消原因(50字以内)'></textarea>
+    </view>
+    
+  </view>
+  <view class="errors">{{errorTip}}</view>
+  <button class="cancelBtn" bindtap='cancelSubmit'>取消订单</button>
+</view>

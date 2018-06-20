@@ -1,0 +1,64 @@
+// 不用代码开始
+var subTime = function (str) {
+  if(str){
+    var arr = str.split('T');
+    return arr[0];
+  }
+  return '';
+}
+
+var getDateTime = function(nStr){
+  if(nStr == undefined) {return ''};
+  var timeArr=nStr.split('T');
+  return timeArr[0] + ' ' + timeArr[1].substring(0, 5);
+}
+
+var getTime = function(str){
+  if (str == undefined) { return '' };
+  var timeArr = str.split('T');
+  return timeArr[1].substring(0, 5);
+}
+
+var addNum=function(num){
+  return num<10?'0'+num:num
+}
+// 不用代码结束
+
+var data = function (argu, isTime) {
+  if(argu == null){return false;}
+  var time = getDate(argu);
+  time = getDate(time.getTime() + time.getTimezoneOffset() * 60000);
+  
+  var y = time.getFullYear();
+  var m = time.getMonth() + 1;
+  var d = time.getDate();
+  var hh = time.getHours();
+  var mm = time.getMinutes();
+  var ss = time.getSeconds();
+  if (isTime == 1) {
+    return y + '/' + addNum(m) + '/' + addNum(d) + ' ' + addNum(hh) + ':' + addNum(mm);
+  } else if (isTime == 2){
+    return y + '/' + addNum(m) + '/' + addNum(d) + ' ' + addNum(hh) + ':' + addNum(mm) + ':' + addNum(ss);
+  } else {
+    return y + '/' + addNum(m) + '/' + addNum(d);
+  }
+}
+
+var getLastTime = function (argu, isTime) {
+  if(argu == null){
+    return '';
+  }
+  var time = getDate(argu);
+  time = getDate(time.getTime() + time.getTimezoneOffset() * 60000);
+  var hh = time.getHours();
+  var mm = time.getSeconds();
+  var ss = time.getMinutes();
+  return addNum(hh) + ':' + addNum(ss) ;
+}
+module.exports={
+  subTime : subTime,
+  getDateTime : getDateTime,
+  getTime : getTime,
+  forMat: data,
+  lastTime: getLastTime
+}

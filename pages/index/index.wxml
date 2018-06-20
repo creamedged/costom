@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<import src="../../templates/msglist.wxml"/>
+<view class="container {{isIphoneX?'headerIphonex':''}}">
+  <view class="indexLocation" bindtap="tips" >
+    <image src="../../images/icon.png"></image>
+    <text>北京</text>
+  </view> 
+  <view class="banner">
+    <swiper  class="swiper-box" style="height:341rpx;" autoplay="true" interval="3000" duration="500" circular="true" bindchange='swiperChange'>
+      <block wx:for="{{imgUrls}}" wx:if="{{imgUrls.length>0}}" wx:key="{{index}}" wx:key="{{index}}">
+        <swiper-item data-href="{{item.href}}" >
+          <image src="{{item.img_cover}}" bindtap="bannerProduct" data-href="{{item.href}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class="swipe-btn-wrapper">
+      <view class="swipe-btn-list">
+        <view class="item" wx:for="{{imgUrls}}" wx:key="{{index}}" style='background:{{selectedIndex == index ?"url(../../images/banner_selected.png) no-repeat;background-size:15rpx 15rpx;": "url(../../images/banner_line.png) no-repeat; background-size:15rpx 4rpx;"}} background-position: center center; '></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="assort" wx:if="{{groomList.length>0}}">  
+    <view class="label" style="background:url(../../images/label_bj.png) no-repeat; background-size:100%">
+      <image src="../../images/label_bj.png"></image>
+      <text>服务推荐</text>
+    </view>
+    <view class="list">
+      <view class="item" wx:for="{{groomList}}" wx:key="{{index}}" bindtap='getIndex' data-id="{{item.product_id}}">
+        <image src="{{item.lite_image}}"></image>
+        <view>{{item.name}}</view>
+      </view>
+    </view>
+  </view> 
+
+  <view class="assList">
+    <view class="noData" wx:if="{{noData}}">
+      <image src="../../images/noData.jpg"></image>
+      <text>暂无数据</text>
+    </view>
+    <view wx:else>
+      <block wx:for="{{skuList}}" wx:if="{{skuList.length>0}}" wx:key="{{index}}">
+        <template is="indexItem" data="{{item,index}}"/>
+      </block>
+    </view>
+  </view>
+</view>

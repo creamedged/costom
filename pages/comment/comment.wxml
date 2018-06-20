@@ -1,0 +1,33 @@
+<wxs src="../../templates/msglist.wxs" module="tools" />
+<view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">评价</view>
+</view>
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="product">
+    <image wx:if="{{detail.image_first}}" src="{{detail.image_first}}"></image>
+    <image wx:else src="../../images/default.png"></image>
+    <view>
+      <text class="header">{{detail.name}}</text>
+      <text class="time">服务时间:{{tools.forMat(detail.c_begin_datetime,1)}}</text>
+    </view>
+  </view>
+  <view class="start">
+    <view class="startHeader">评分</view>
+    <view class="startList">
+      <block  wx:for="{{start}}">
+        <image src="../../images/startActive.png" wx:if="{{index+1 <= score}}" data-index="{{index+1}}" bindtap="scoreFn"></image>
+        <image wx:else src="../../images/start.png" bindtap="scoreFn"  data-index="{{index+1}}"></image>
+      </block>
+    </view>
+  </view>
+  <view class="startContent">
+    <view class="header">评价</view>
+    <view class="area">
+      <textarea placeholder='请发表评论(200字以内)' bindinput="getRemark"></textarea>
+    </view>
+  </view>
+</view> 
+<button class="subScore" bindtap='subScore'>提交评论</button>

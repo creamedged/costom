@@ -1,0 +1,9 @@
+var phoneReplace = function (str){
+  var reg = getRegExp("(\d{3})\d{4}(\d{4})");
+  var startPhone = str.replace(reg, '$1****$2');
+  return startPhone
+}
+
+module.exports={
+  phoneReplace: phoneReplace
+}

@@ -1,0 +1,45 @@
+/* pages/orderDetail/orderDetail.wxss */
+.container{background: #efeff4;}
+.orderNews {overflow: hidden; background: #fff; padding-bottom:30rpx;}
+.orderNews .header{overflow: hidden; border-bottom:2px solid #ddd; padding:28rpx 30rpx;}
+.orderNews .header .title{float:left; font-size:36rpx;}
+.orderNews .header .state{float:right; font-size:26rpx; line-height: 45rpx;}
+/*待付款  */
+/* .orderNews .header .orderType{color:#ff4e00;} */
+/*待服务  */
+/* .orderNews .header .orderServiece{color:#ffae00;} */
+/*待确认 */
+/* .orderNews .header .orderOK{color:#09bb07;} */
+/* 已取消 已完成  #727171  */
+/* .orderNews .header .orderAsh{color:#727171;} */
+
+.orderNews .content{overflow: hidden;}
+.orderNews .content .orderNum{color:#939393; font-size:24rpx; padding:0 20rpx; height: 60rpx; line-height: 60rpx;}
+.orderNews .content .orderNum .orderStatus{float:right;}
+
+.product{overflow: hidden; position: relative; padding:20rpx; background:#f9f9f9}
+.product image{width:180rpx; height: 180rpx; float: left;}
+.product .news{margin-left:200rpx; position: relative; height: 180rpx;}
+.product .news .name{font-size:28rpx; color:#333333; }
+.product .news .price{position: absolute; bottom:0px;}
+.product .news .price .priceStyle{font-size:40rpx; color:#ff3b30;}
+.product .news .price .oldPrice{font-size:14rpx; text-decoration: line-through; color:#939393; display: inline-block; margin-left:15rpx;}
+.product .news .price .oldPrice text{font-size:24rpx;}
+.product .news .couponStyle{border:1rpx solid #bcdaf7; padding:0 10rpx; float:left; font-size:18rpx; color:#939393;}
+.product .more{position:absolute; right:30rpx; top:45rpx; width:30rpx; height: 30rpx; }
+.content .time_address{overflow: hidden; font-size:26rpx; padding:10rpx 30rpx;}
+.content .time_address .title{color:#727171; float:left}
+.content .time_address .time{color:#000000; margin-left:130rpx;display: block; text-align: left;}
+
+
+.orderDetail{margin-top:20rpx; background: #fff; padding-bottom:40rpx} 
+.orderDetail .header{ padding:28rpx 30rpx; font-size:36rpx; border-bottom:2px solid #ddd; margin-bottom:20rpx;}
+
+.orderDetail .item{overflow:hidden; padding:37rpx 25rpx; border-bottom:1rpx solid #f2f2f2}
+.orderDetail .item .title{color:#333333; font-size:28rpx; float:left; width:152rpx;}
+.orderDetail .item .price{color:#939393; font-size:28rpx; margin-left:152rpx;}
+/*147 54  */
+.orderAttr{overflow: hidden; text-align: right; background: #fff; position: fixed; bottom:0px; left:0px; right:0px; height: 110rpx; padding:0 20rpx; box-shadow: 0 2rpx 15rpx #e7e7e7}
+.orderAttr .ok{ color: #fff; border-radius:54rpx; display: inline-block; margin-top:29rpx; font-size:24rpx; background:#ff9e05;   height: 54rpx; line-height: 54rpx; width:147rpx; padding:0px;}
+.orderAttr .okAlgin{color: #ff9e05; border-radius:54rpx; display: inline-block; margin-top:29rpx; font-size:24rpx; border:1rpx solid #ffcf82;  width:147rpx; height: 54rpx; line-height: 54rpx; background: #fff; padding:0px;}
+.orderAttr .cancel{ color: #333; border-radius:54rpx; background:#fff; display: inline-block; height:54rpx; line-height: 54rpx; border:1px solid #c6c6c6; font-weight: normal; font-size:24rpx;} 

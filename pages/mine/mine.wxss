@@ -1,0 +1,5 @@
+/* pages/mine/mine.wxss */
+.item{overflow: hidden;padding:36rpx 30rpx; position: relative; border-bottom:1px solid #eeeeee}
+.item .title{font-size:30rpx; float:left}
+.item .more{float:right; width:21rpx; height: 21rpx; margin-top:10rpx;}
+.item .num{position: absolute; left:0px; right:0px; top:0px; bottom:0px; font-size:30rpx; text-align: right; margin-right:80rpx; padding:36rpx 0rpx;}

@@ -1,0 +1,28 @@
+ <view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">在线支付</view>
+</view> 
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="time">
+      <view class="content" style="background:url('../../images/time.png') no-repeat; background-size:49rpx 49rpx">{{CountDown}}</view>
+  </view>
+  <view class="item">
+    <text class="title">服务名称</text>{{payData.name}}
+  </view>
+  <view class="item">
+    <text class="title">服务金额</text>￥{{payData.price_total/100}}
+  </view>
+  <view class="item">
+    <text class="title">优惠金额</text>-￥{{payData.price_discount/100}}
+  </view>
+  <view class="item">
+    <text class="title">实付金额</text><text class="price">￥{{payData.price_pay/100}}元</text>
+  </view>
+  <view class="payMent">
+    <image src="../../images/wxchar.png"></image>
+  </view>
+  <!-- <button bindtap='goIndex'>跳转</button> -->
+  <view class="payBtn" bindtap="payNow">{{payBtn}}</view>
+</view>

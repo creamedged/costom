@@ -1,0 +1,23 @@
+<!--pages/typeList/typeList.wxml-->
+<import src="../../templates/msglist.wxml"/>
+<view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">{{title}}</view>
+</view> 
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+  <view class="loading" wx:if="{{isLoading}}">
+    <image src="../../images/loading.gif"></image>
+  </view>
+  <view class="noData" wx:if="{{noData}}">
+    <image src="../../images/noData.jpg"></image>
+    <text>暂无数据</text>
+  </view>
+  <view wx:else>
+    <block wx:for="{{data}}" wx:key="{{index}}">
+      <!-- <template is="msgList" data="{{item}}"/> -->
+      <template is="msgItem" data="{{item,index}}"/>
+    </block>
+  </view>
+</view>

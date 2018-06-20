@@ -1,0 +1,97 @@
+ <view class='headerBox {{isIphoneX?"headerIphonex":""}}'>
+  <view class="imgBox" bindtap='backFn'>
+    <image src="../../images/black.png"></image>
+  </view>
+  <view class="header_content">{{detailData.name}}</view>
+</view>
+<view class="describeNav" wx:if="{{isNav}}"  style='{{isIphoneX?"top:85px":""}}' >
+  <view wx:for="{{describe}}" class="{{toView == 'des_'+item.id ?'selected':''}}{{index == ind ?'selected':''}}" bindtap="jumpTo" wx:key="{{index}}" data-id="{{item.id}}">{{item.tag}}</view>
+</view>
+<scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class='scr' style='{{isIphoneX?"padding-top:85px":""}}' bindscroll="scrollTopView">
+  <image class="skuImg" mode='aspectFill' src="{{detailData.image_first}}" id="des_top"></image>
+  <view class="head">
+    <text class="title">{{detailData.name}}</text>
+    <view class="order">已有<text>{{detailData.base_buyed||'0'}}</text>人预约</view>
+  </view>
+  <view class="skuNote">{{detailData.descript}}</view>
+  <view class="productPrice">
+    <text class="leftPrice">￥{{skuPrice/100}}<text wx:if="{{unit}}">/{{unit}}</text></text>
+    <view class="rightPrice" wx:if="{{pricev}}"><text>￥</text>{{pricev/100}}</view>
+  </view>
+  <view class="couponList" wx:if="{{couponList.length>0}}">
+    <view class="item" wx:for="{{couponList}}" wx:key="{{index}}" bindtap="getCouponFn" data-index="{{index}}" data-status="{{item.status}}" data-id="{{item.coupon_id}}">
+      <image wx:if="{{item.status ==2}}" src="../../images/couponDetailSelected.png"></image>
+      <image wx:else src="../../images/couponDetailSelect.png"></image>
+      <view class="content">
+        <view class="left">
+           <view class="price">￥{{item.value/100}}</view> 
+          <view class="priceNote">{{item.programme_type ==1?'折扣券':'代金券'}}</view>
+        </view>
+        <view class="right1" wx:if="{{item.status ==2}}">已领取</view>
+        <view class="right" data-couponid="{{item.coupon_id}}" wx:else>领取</view>
+      </view>
+    </view>
+  </view>
+  <view class="skuService" bindtap="actionSheetTap">
+    <text>服务类别</text>
+     <image src="../../images/more.png"></image> 
+    <text class="selecteItem">{{selectedItem}}</text>
+  </view>
+  <view class="skuService">
+    <text wx:if="{{!score}}">暂无评价</text>
+    <block wx:else>
+      <text>{{score.percentStr}}　好评</text>
+      <view class="selecteItem serverImg">
+        <block wx:for="{{branch}}" wx:key="{{index}}">
+          <image wx:if="{{item < score.avgScore}}" src="../../images/storActive.png"></image>
+          <image wx:else src='../../images/stor.png'></image>
+        </block>
+      </view>
+    </block>
+  </view>
+  <view class="describe" wx:for="{{describe}}" id="des_{{item.id}}" wx:key="{{index}}"> 
+    <view class="title">
+      <text class="line"></text>
+      <view class="name">{{item.tag}}</view>
+    </view>
+    <view class="content">
+      <image src="{{item.url}}" mode="widthFix"></image>
+    </view>
+  </view>
+</scroll-view>
+ <view class="btn_Price">
+  <button class="submit" bindtap="submitBtn" data-id="{{detailData.product_id}}">立即预约</button>
+</view> 
+<image src="../../images/top.png" class="top" wx:if="{{isNav}}" data-id="top" bindtap="jumpTo"></image>
+<!-- hidden="" -->
+<action-sheet hidden="{{actionSheetHidden}}" catchtap="hideDolog" style="overflow:auto;background:#fff; padding-bottom:100rpx;position:relative;">
+  <view class="fnFasl" catchtap='fnFasl' style=''>
+    <view class="sheetTitle">
+      <view class="sheetContent">
+        <view class="imgIcon"><image src="{{detailData.lite_image}}"></image></view>
+        <view class="titlePrice">
+          <text class="price">￥{{skuPrice/100}}</text>
+          <text class="title">已选:{{selectedItem}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="skuError" wx:if="{{skuError !=''}}">{{skuError}}</view>
+    <!--<view class="noData typeNoData" wx:if="{{actionSheetItems.length==0}}">
+      <image src="../../images/noData.jpg"></image>
+      <text>抱歉，暂无服务类型数据</text>
+    </view>-->
+    <view style="overflow:hidden; padding:0 20rpx 140rpx;" catchtap=''>
+      <block wx:for-items="{{actionSheetItems}}" wx:key="{{index}}">
+          <action-sheet-item data-index="{{index}}" data-id="{{item.psku_id}}" class="dItem {{selected == item.psku_id?'active':''}}" catchtap="bindSelected">
+            {{item.name}}
+             <!-- <view class="type">{{item.name}}</view>  -->
+            <!-- <view class="txt">￥{{item.price/100}}</view> -->
+          </action-sheet-item>
+      </block>
+    </view>
+    <view class="skuBtn" catchtap="skuBtn" data-id="{{detailData.product_id}}">立即预约</view>
+  </view>
+   <!-- <action-sheet-cancel class="skuBtn" catchtap="skuBtn" data-id="{{detailData.product_id}}">
+    <view>确定</view>
+  </action-sheet-cancel>  -->
+</action-sheet>
