@@ -49,23 +49,23 @@
       <view class="orderDetail">
         <view class="item" wx:if="{{detail.c_begin_datetime}}">
           <view class="title">服务时间</view>
-          <view class="price" style="{{detail.c_begin_datetime ? 'color:#333; font-size:32rpx;':''}}">{{myTime.forMat(detail.c_begin_datetime,1)}}<text wx:if="{{detail.c_end_datetime!=null}}">-</text>{{myTime.lastTime(detail.c_end_datetime)}}</view>
+          <view class="price" style="{{detail.c_begin_datetime ? 'color:#333; font-size:28rpx;':''}}">{{myTime.forMat(detail.c_begin_datetime,1)}}<text wx:if="{{detail.c_end_datetime!=null}}">-</text>{{myTime.lastTime(detail.c_end_datetime)}}</view>
         </view>
         <view class="item">
           <view class="title">服务地址</view>
-          <view class="price" style="{{detail.customer_address ? 'color:#333; font-size:32rpx;':''}}">{{detail.customer_address}}</view>
+          <view class="price" style="{{detail.customer_address ? 'color:#333;':''}}">{{detail.customer_address}}</view>
         </view>
         <view class="item">
           <view class="title">联系人</view>
-          <view class="price" style="{{detail.cus_username && detail.cus_phone? 'color:#333; font-size:32rpx;':''}}">{{detail.cus_username}} {{detail.cus_phone}}</view>
+          <view class="price" style="{{detail.cus_username && detail.cus_phone? 'color:#333;':''}}">{{detail.cus_username}} {{detail.cus_phone}}</view>
         </view>
         <view class="item">
           <view class="title">下单时间</view>
-          <view class="price" style="{{detail.create_datetime ? 'color:#333; font-size:32rpx;':''}}">{{myTime.forMat(detail.create_datetime,2)}}</view>
+          <view class="price" style="{{detail.create_datetime ? 'color:#333;':''}}">{{myTime.forMat(detail.create_datetime,2)}}</view>
         </view>
         <view class="item">
           <view class="title">备注信息</view>
-          <view class="price" style="{{detail.remark ? 'color:#333; font-size:32rpx;':''}}">{{detail.remark}}</view>
+          <view class="price" style="{{detail.remark ? 'color:#333;':''}}">{{detail.remark}}</view>
         </view>
       </view>
     </view>
