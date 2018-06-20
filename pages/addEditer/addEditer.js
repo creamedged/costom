@@ -33,7 +33,6 @@ Page({
     wx.getStorage({   //选择地址返回时提取缓存填充信息
       key: 'tdata',
       success: res => {
-        console.log('------')
         this.setData({
           userName: res.data.userName,
           phone: res.data.phone,
@@ -46,12 +45,14 @@ Page({
           location: res.data.location,
           isMine:res.data.isMine
         })
+        wx.removeStorageSync('tdata')
       },fail:res=>{       
         this.getAddressType()
       }
     })
   },
   backFn() {
+    console.log('=======backFn')
     wx.removeStorageSync('editer')
     wx.removeStorageSync('tdata')
     wx.removeStorageSync('type')
@@ -64,6 +65,12 @@ Page({
         url: '/pages/addressList/addressList',
       })
     }
+  },
+  onShow(){
+    console.log('1231023129083910====shwo')
+  },
+  onHide(){
+    console.log('=========sjflkasjfkl;')
   },
   getAddressType(){
     this.setData({

@@ -274,7 +274,7 @@ Page({
         // })
         this.setData({
           isTips: true,
-          tipsContent: '该服务最高限' + this.data.term.buy_multiple_max +'拍',
+          tipsContent: '该服务最高限拍' + this.data.term.buy_multiple_max ,
         })
         setTimeout(() => {
           this.setData({
@@ -347,7 +347,7 @@ Page({
         options.detail.value = this.data.term.buy_multiple_max
         this.setData({
           isTips: true,
-          tipsContent: '该服务最高限' + this.data.term.buy_multiple_max + '拍',
+          tipsContent: '该服务最高限拍' + this.data.term.buy_multiple_max ,
         })
       }
     } else if (options.detail.value <= this.data.term.buy_multiple_min) {

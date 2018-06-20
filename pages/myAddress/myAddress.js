@@ -67,6 +67,7 @@ Page({
     })
     for (let i = 0; i < this.data.list.length; i++) {
       if (id == this.data.list[i].customer_address_id) {
+        console.log(this.data.list[i],'========>>>>>>>>')
         wx.setStorage({
           key: 'editer',
           data: this.data.list[i],
@@ -75,7 +76,7 @@ Page({
       }
     }
 
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/addEditer/addEditer'
     })
   },

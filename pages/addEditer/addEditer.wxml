@@ -2,7 +2,7 @@
   <view class="imgBox" bindtap='backFn'>
     <image src="../../images/black.png"></image>
   </view>
-  <view class="header_content">{{type == 0?'新增地址':'编辑地址'}}</view>
+  <view class="header_content">{{nType.type == 0?'新增地址':'编辑地址'}}</view>
 </view> 
 <view class="container {{isIphoneX?'containerIphoneX' :''}}">
   <view class="itemStyle">

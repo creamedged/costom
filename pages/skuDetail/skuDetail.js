@@ -121,7 +121,6 @@ Page({
         showCancel: false,
         confirmColor: '#00a0e9',
         success: res => {
-          console.log(this.data.meUrl,'====>>>')
           if (res.confirm) {
             wx.redirectTo({
               url: '/pages/login/login?id=' + this.data.product_id + '&url=' + this.data.meUrl + '&skuId=' + this.data.selectedSkuId,

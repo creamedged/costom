@@ -5,13 +5,14 @@
   </view>
   <view class="header_content">提交订单</view>
 </view> 
+
+<view class="container {{isIphoneX?'containerIphoneX' :''}}">
 <view class="tips" wx:if="{{isTips}}">
   <view class="tipsBox">
     <image src="../../images/tixing.png"></image>
     <text>{{tipsContent}}</text>
   </view>
 </view>
-<view class="container {{isIphoneX?'containerIphoneX' :''}}">
 <view class="productDetail">
   <!-- <view class="orderNumber">订单号：{{}}</view> -->
   <view class="orderDetail">

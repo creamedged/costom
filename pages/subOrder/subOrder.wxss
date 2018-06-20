@@ -69,7 +69,7 @@
 .fnFasl .item .couponIcon{position: absolute; right:20rpx; width:30rpx; top:50%; height: 30rpx; margin-top:-15rpx;}
 .fnFasl .item .couponIcon image{width:30rpx; height: 30rpx; }
 
-.tips{background:#a0cafa; font-size:26rpx; height:30rpx; padding:15rpx 0; position:fixed; top:64px; left:0px; right:0px; color:#fff;}
+.tips{background:#a0cafa; font-size:26rpx; height:30rpx; padding:15rpx 0; color:#fff;}
 .tips image{width:30rpx; height: 30rpx; display:block; float:left; margin-right:10rpx;}
 .tips text{float:left; margin-top:-1rpx;}
 .tips .tipsBox{width:300rpx; margin:0 auto;}
