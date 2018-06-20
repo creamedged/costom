@@ -40,7 +40,7 @@
   <view class="skuService">
     <text wx:if="{{!score}}">暂无评价</text>
     <block wx:else>
-      <text>{{score.percentStr}}　好评</text>
+      <text style="color:#f64755">{{score.percentStr}}　好评</text>
       <view class="selecteItem serverImg">
         <block wx:for="{{branch}}" wx:key="{{index}}">
           <image wx:if="{{item < score.avgScore}}" src="../../images/storActive.png"></image>
