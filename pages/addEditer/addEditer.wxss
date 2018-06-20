@@ -21,7 +21,7 @@
 .save{position: fixed; bottom:0px; height:80rpx; line-height:75rpx; background: #4396e9; color:#fff; border-radius:15rpx; left:0px; right:0px; margin:30rpx;font-size:32rpx}
 
 .errorTip{color:#f00; text-align: center; line-height: 50rpx; margin-top:50rpx; font-size:26rpx;}
-.address_add{position: fixed; bottom:0px; height:80rpx; line-height:75rpx; background: #4396e9; color:#fff; border-radius:15rpx; left:0px; right:0px; margin:30rpx;}
+.address_add{position: fixed; bottom:0px; height:80rpx; line-height:80rpx; background: #4396e9; color:#fff; border-radius:15rpx; left:0px; right:0px; margin:30rpx;font-size:28rpx}
 .delNumIconBox{float:right;margin-top:-40rpx;}
 .delNumIconBox .delNumIcon{width:25rpx; height: 25rpx; }
 
