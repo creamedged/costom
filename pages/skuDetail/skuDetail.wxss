@@ -60,7 +60,7 @@
 .skuError{color:#f00; text-align: center; font-size:26rpx;padding:5rpx 0; width:100%;}
 
 .describeNav{overflow: hidden; position: fixed; top:64px; left:0px; right:0rpx; z-index: 100; background:#fff; text-align: center; border-top:1rpx solid #e7e7e7;box-shadow: 0 1px 3px #f1f1f1}
-.describeNav view{padding:20rpx 0;display: inline-block;  margin:0 30rpx;font-size:24rpx; color:#000}
+.describeNav view{padding:15rpx 0;display: inline-block;  margin:0 30rpx;font-size:24rpx; color:#000}
 .describeNav .selected{color:#0f83f2; border-bottom:6rpx solid #6fb5f7; }
 
 .describe{overflow: hidden;}
