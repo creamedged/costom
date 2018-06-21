@@ -27,7 +27,7 @@
       <text>服务推荐</text>
     </view>
     <view class="list">
-      <view class="item" wx:for="{{groomList}}" wx:key="{{index}}" bindtap='getIndex' data-id="{{item.product_id}}">
+      <view class="item" wx:for="{{groomList}}" wx:key="{{index}}" wx:if="{{index<3}}" bindtap='getIndex' data-id="{{item.product_id}}">
         <image src="{{item.lite_image}}"></image>
         <view>{{item.name}}</view>
       </view>

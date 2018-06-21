@@ -25,7 +25,7 @@ page {background:#f2f2f2}
 .address_add{background:#4396e9; color:#fff; height:80rpx; line-height:80rpx; font-size:28rpx;left:0px; right:0px; border-radius:15rpx;}
 .address_add .addressBtn{background:#4396e9; color:#fff; height: 80rpx; text-align: center; border-radius:10rpx; line-height: 80rpx; font-size:28rpx; width:100%;}
 .address_add .addressBtn image{width:30rpx; height:31rpx;}
-.addressFooter .attr{float:right; margin-top:15rpx;}
+.addressFooter .attr{float:right; padding:21rpx 0}
 .addressFooter .attr view{float:right; color:#aaaaaa; font-size:22rpx; margin-left:53rpx;}
 .addressFooter .attr view image{width:30rpx; height: 30rpx; float:left;}
 .addressFooter .attr view text{float:left; line-height: 30rpx; margin-left:5rpx;}

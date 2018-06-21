@@ -4,7 +4,7 @@
     <image src="../../images/black.png"></image>
   </view>
 </view> 
-<view class="container {{isIphoneX?'containerIphoneX' :''}}">
+<view class="container" style="{{isIphoneX?'margin-top:45px!important' :''}}">
   <view class="noData" wx:if="{{noData}}">
     <image src="../../images/noData.jpg"></image>
     <text>暂无可用时间</text>

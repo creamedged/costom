@@ -1,5 +1,8 @@
 /* pages/addressList/addressList.wxss */
-.container{padding-bottom:100rpx;background:#f2f2f2}
+
+
+.container{padding-bottom:100rpx;}
+
 .addressItem{ background: #fff;}
 .itemActive{background: #efeff4;}
 .addressListBox{background: #f2f2f2;}

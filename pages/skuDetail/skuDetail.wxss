@@ -65,7 +65,7 @@
 .describeNav .selected{color:#0f83f2; border-bottom:6rpx solid #6fb5f7; }
 
 .describe{overflow: hidden;}
-.describe .title{height: 42rpx; font-size:46rpx; line-height: 46rpx; margin-top:60rpx;}
+.describe .title{height: 42rpx; font-size:46rpx; line-height: 46rpx; margin-top:120rpx;}
 .describe .title .line{height: 42rpx; width:24rpx; background:#9ac6fa; display: block; float:left; margin-right:20rpx;}
 .describe .title .name{float:left;}
 .describe .content{text-align: center; margin-top:120rpx;  padding:0 20rpx;}

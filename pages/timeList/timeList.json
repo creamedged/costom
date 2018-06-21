@@ -3,5 +3,6 @@
     "calendar-picker": "/components/calendarPicker/calendarPicker"
   },
   "navigationBarTitleText": "",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": false,
+  "disableScroll": true
 }

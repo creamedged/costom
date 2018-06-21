@@ -5,7 +5,7 @@
   <view class="header_content">{{detailData.name}}</view>
 </view>
 <view class="describeNav" wx:if="{{isNav}}"  style='{{isIphoneX?"top:85px":""}}' >
-  <view wx:for="{{describe}}" class="{{toView == 'des_'+item.id ?'selected':''}}{{index == ind ?'selected':''}}" bindtap="jumpTo" wx:key="{{index}}" data-id="{{item.id}}">{{item.tag}}</view>
+  <view wx:for="{{describe}}" class="{{toView == 'des_'+item.id ?'selected':''}}{{'des_'+item.id == ind ?'selected':''}}" bindtap="jumpTo" wx:key="{{index}}" data-id="{{item.id}}">{{item.tag}}</view>
 </view>
 <scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class='scr' style='{{isIphoneX?"padding-top:85px":""}}' bindscroll="scrollTopView">
   <image class="skuImg" mode='aspectFill' src="{{detailData.image_first}}" id="des_top"></image>

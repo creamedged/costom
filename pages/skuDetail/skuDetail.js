@@ -73,41 +73,43 @@ Page({
   },
   scrollTopView(options){
     var top = parseInt(options.detail.scrollTop);
-    var arr = this.data.arr;
+    var arr = this.data.arr,arr1 = this.data.arr1;
     this.setData({
       toView: ''
     })
-    if (top < arr[0]) {
+    if (top < arr[0] + 80) {
       this.setData({
-        ind: 0
+        ind: arr1[0]
       })
-    } else if (arr[2] && arr[1] < top && top < arr[2] || arr[1] < top) {
+    } else if (arr[2] && arr[1] < top && top < arr[2] || !arr[2] && arr[1] < top) {
       this.setData({
-        ind: 1
+        ind: arr1[1]
       })
-    } else if (arr[3] && arr[2] < top && top < arr[3] || arr[2] < top) {
+    } else if (arr[3] && arr[2] < top && top < arr[3] || !arr[2] && arr[2] < top) {
       this.setData({
-        ind: 2
+        ind: arr1[2]
       })
     } else if (arr[3] < top) {
       this.setData({
-        ind: 3
+        ind: arr1[3]
       })
     }
     if(top >30){
       this.setData({
-        isNav:true
+        isNav:true,   
       })
     }else{
       this.setData({
-        isNav: false
+        isNav: false,
+        toView: ''
       })
     }
   },
   jumpTo(options) {
     var id = options.currentTarget.dataset.id;
     this.setData({
-      toView: 'des_' + id
+      toView: 'des_' + id,
+      ind:''
     })
     if(id == 'top') {
       this.getDetailData(this.data.product_id);
@@ -165,14 +167,16 @@ Page({
         describe: res.data.data.customer_product_detail.productTags
       })
       var desc = this.data.describe
-      var _this = this,arr = [];
+      var _this = this, arr = [],arr1 = [];
       setTimeout(function(){
         for (var i = 0; i < desc.length; i++) {
           var query = wx.createSelectorQuery()
           query.select('#des_' + desc[i].id).boundingClientRect(function (res) {
-            arr.push(res.top)
+            arr.push(res.top - 90)
+            arr1.push(res.id)
             _this.setData({
-              arr: arr
+              arr: arr,
+              arr1: arr1
             })
           }).exec()
         }

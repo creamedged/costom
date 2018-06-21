@@ -76,6 +76,12 @@ Page({
       }
     })
   },
+  onUnload(){
+    wx.removeStorageSync('time_' + app.globalData.customerId);
+  },
+  onHide(){
+    wx.removeStorageSync('time_' + app.globalData.customerId);
+  },
   getTImeStorage(){
     wx.getStorage({  //时间缓存
       key: 'time_' + app.globalData.customerId,
@@ -95,9 +101,21 @@ Page({
   },
   getAddressStorage(){
     var storageAddress = wx.getStorageSync('selectedAddress_' + app.globalData.customerId);
+    
     if(!storageAddress){
       this.getDefaultAddress();
     }else{
+      // app.req({ "query": 'query{customer_address_list{customer_address_id,default_address,province,city,area,customer_id,username,phone,address,lbs_lat,lbs_lng,sub_address}}' }, res => {
+      //     if(res.data.errors){
+      //       this.getDefaultAddress()
+      //       return false;
+      //     }
+      //     var addressList = res.data.data.customer_address_list;
+      //     console.log(addressList,'==========>')
+      //     for(let i=0,n=addressList.length; i<n; i++){
+      //       // if(addressList)
+      //     }
+      // })
       this.setData({
         isAddress: true,
         userName: storageAddress.username,
@@ -191,6 +209,17 @@ Page({
         id : options.currentTarget.dataset.id
       }
     })
+    if (this.data.tempCoupon.id == 'no') {
+      this.setData({
+        couponIcon: false,
+        couponNews: {
+          id: '',
+          name: ''
+        },
+        "allPrice.discountPrice": '',
+        actionSheetHidden: !this.data.actionSheetHidden
+      })
+    }
   },
 
   selectedCouponBtn(){
@@ -199,10 +228,13 @@ Page({
     })
     if (this.data.tempCoupon.id == 'no') {
       this.setData({
+        couponIcon: false,
         couponNews: {
           id: '',
           name: ''
-        }
+        },
+        
+        actionSheetHidden: !this.data.actionSheetHidden
       })
       this.totalPrice()
       return false
@@ -226,7 +258,7 @@ Page({
 
   goToAddress(){ //跳转到地址列表
     this.setStorageDetail();
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/addressList/addressList',
     })
   },
@@ -434,7 +466,7 @@ Page({
       isDisabled: true
     })
     app.getmstCode(res => {
-      app.req({ "query": 'mutation{customer_create_order(order_input:{product_id:"' + this.data.productId + '",psku_id:"' + this.data.skuId + '",begin_datetime:"' + this.data.time.startDate.split('/').join('-') + '",end_datatime:"' + this.data.time.endDate + '",customer_address_id:"' + this.data.addressId + '",coupon_receive_id:"' + (this.data.couponNews.id || 0) + '",num:' + this.data.count + ',remark:"' + this.data.remark.replace(/\s+/g, '') + '"}){pay_order_id,name,uid,price_total,create_datetime,price_discount}}'},res=>{
+      app.req({ "query": 'mutation{customer_create_order(order_input:{product_id:"' + this.data.productId + '",psku_id:"' + this.data.skuId + '",begin_datetime:"' + this.data.time.startDate.split('/').join('-') + '",end_datatime:"' + this.data.time.endDate.split('/').join('-') + '",customer_address_id:"' + this.data.addressId + '",coupon_receive_id:"' + (this.data.couponNews.id || 0) + '",num:' + this.data.count + ',remark:"' + this.data.remark.replace(/\s+/g, '') + '"}){pay_order_id,name,uid,price_total,create_datetime,price_discount}}'},res=>{
         if (res.data.errors && res.data.errors.length > 0 || res.data.eror) {
           // console.log('接口错误')
           this.setData({

@@ -57,15 +57,16 @@ Page({
       })
       var expireTime = new Date(vData.expire_datetime);
       var dTime = expireTime.getTime() + new Date().getTimezoneOffset() * 60000;
-      this.setData({
-        timer : setInterval(() => {
+        this.data.timer = setInterval(() => {
           this.downTime(dTime)
         }, 1000)
-      })
     })
   },
   addStr(n){
     return n>9?n:'0'+n;
+  },
+  onHide(){
+    clearInterval(this.data.timer);
   },
   onUnload(){
     clearInterval(this.data.timer)
