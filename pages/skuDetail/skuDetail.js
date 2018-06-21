@@ -81,11 +81,11 @@ Page({
       this.setData({
         ind: 0
       })
-    } else if (arr[1] < top && top < arr[2]) {
+    } else if (arr[2] && arr[1] < top && top < arr[2] || arr[1] < top) {
       this.setData({
         ind: 1
       })
-    } else if (arr[2] < top && top < arr[3]) {
+    } else if (arr[3] && arr[2] < top && top < arr[3] || arr[2] < top) {
       this.setData({
         ind: 2
       })
@@ -166,15 +166,17 @@ Page({
       })
       var desc = this.data.describe
       var _this = this,arr = [];
-      for(var i=0;i<desc.length;i++){
-        var query = wx.createSelectorQuery()
-        query.select('#des_' + desc[i].id).boundingClientRect(function (res) {
-          arr.push(res.top)
-          _this.setData({
-            arr: arr
-          })
-        }).exec()
-      }
+      setTimeout(function(){
+        for (var i = 0; i < desc.length; i++) {
+          var query = wx.createSelectorQuery()
+          query.select('#des_' + desc[i].id).boundingClientRect(function (res) {
+            arr.push(res.top)
+            _this.setData({
+              arr: arr
+            })
+          }).exec()
+        }
+      },500)
       // this.setData({
       //   selectedSkuId: this.data.actionSheetItems[0].psku_id,
       //   selectedItem: this.data.actionSheetItems[0].name,
