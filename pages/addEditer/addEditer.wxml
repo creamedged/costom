@@ -7,7 +7,9 @@
 <view class="container {{isIphoneX?'containerIphoneX' :''}}">
   <view class="itemStyle">
     <text class="title">联系人</text>
-    <view class="content"><input type='text' placeholder='请输入用户名' placeholder-class='placeStyle' bindinput='getUserName' value="{{userName}}" /></view>
+    <view class="content">
+      <input type='text' placeholder='请输入用户名' placeholder-class='placeStyle' bindinput='getUserName' value="{{userName}}" />
+    </view>
   </view> 
   <view class="itemStyle">
     <text class="title">手机号</text>
@@ -28,7 +30,8 @@
     <view class="content"><input type='text' value="{{detailed}}" placeholder-class='placeStyle' bindinput='getAddressContent' placeholder='请输入街道/楼牌号等，如：1号楼101' /></view>
   </view>
   <view class="errorTip">{{errorTip}}</view>
-  <button class="address_add" bindtap="add" disabled="{{requestOK}}" wx:if="{{type == 0}}">保存</button>  
+  
+  <button class="address_add" bindtap="add" disabled="{{requestOK}}" wx:if="{{nType.type == 0}}">保存</button>  
     <!-- <view class="save" bindtap="editerSave" disabled="{{requestOK}}">{{isMine?'保存':'保存并使用'}}</view> -->
-  <button class="save"  wx:if="{{type == 1}}" bindtap="editerSave" disabled="{{requestOK}}">保存</button>
+  <button class="save"  wx:if="{{nType.type == 1}}" bindtap="editerSave" disabled="{{requestOK}}">保存</button>
 </view>

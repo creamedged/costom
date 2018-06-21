@@ -111,7 +111,7 @@
   <view class="orderAttr" wx:if="{{detail.orderStatus  == 'waitService'}}">
     <!--待服务  -->
     <button class="cancel mt30" bindtap="cancelOrder">取消订单</button>
-    <button class="okAlgin ml13" bindtap="goToDetail" data-id="{{detail.product_id}}" data-skuid="{{detail.proSku_id}}">再次购买</button>
+    <button class="okAlgin ml13" bindtap="goToDetail" data-id="{{detail.product_id}}" data-skuid="{{detail.proSku_id}}" data-orderid="{{detail.pay_order_id}}">再次购买</button>
     <button class="ok ml13" wx:if="{{detail.orderStatus=='waitService' && detail.serviceStatus =='leave' }}" bindtap="okOrder" data-url="/pages/cancel/cancel" >确认完成</button>
   </view>
 </view>

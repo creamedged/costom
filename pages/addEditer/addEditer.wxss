@@ -10,7 +10,7 @@
 .selectAddress{ position: absolute; right:20rpx; top:34rpx; border-left:1px solid #f3f3f3; padding-left:17rpx;}
 .selectAddress image{display: block;width:30rpx; height: 30rpx; margin:0 auto;}
 .selectAddress view{font-size:14rpx; color:#0f83f2; margin-top:5rpx;}
-.goToAdd{  margin:7rpx 100rpx 0rpx 173rpx;}
+.goToAdd{  margin:7rpx 100rpx 0rpx 152rpx;}
 .default{padding:20rpx 30rpx;}
 .default .title{ width:200rpx; line-height: 70rpx;}
 .default .switch{float: right;}

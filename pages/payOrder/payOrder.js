@@ -33,6 +33,7 @@ Page({
       content: '您的订单在30分钟内未支付将被取消，请尽快完成支付',
       success:res=>{
         if(res.confirm){
+          clearInterval(this.data.timer);
           // 确认离开，跳转到订单列表界面
           wx.switchTab({
             url: '/pages/order/order',
@@ -56,21 +57,23 @@ Page({
       })
       var expireTime = new Date(vData.expire_datetime);
       var dTime = expireTime.getTime() + new Date().getTimezoneOffset() * 60000;
-      console.log(dTime, '====================', vData.expire_datetime)
-      this.data.timer = setInterval(() => {
-        this.downTime(dTime)
-      }, 1000)
+      this.setData({
+        timer : setInterval(() => {
+          this.downTime(dTime)
+        }, 1000)
+      })
     })
   },
   addStr(n){
     return n>9?n:'0'+n;
   },
+  onUnload(){
+    clearInterval(this.data.timer)
+  },
   downTime(value){
     var now = new Date().getTime();
-    console.log(now,'=====>>>>')
     var t = value - now;
     // var t = 1529477294000 - now;
-    console.log(value,'==================',now)
     var m = 0;
     var s = 0;
     if (t >= 0) {
@@ -152,7 +155,6 @@ Page({
   },
   getOrderPayStatus(){
     app.req({ "query": 'query{customer_confirm_pay_status(pay_order_id: "' + this.data.orderId + '") {pay_order_id,pay_status}}'},res=>{
-      console.log('getOrderStatus')
       wx.removeStorageSync('payData')
     })
   }

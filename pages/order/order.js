@@ -37,12 +37,13 @@ Page({
     isIphoneX:false
   },
   onLoad: function (options) {
+    console.log('=======')
     this.getInfo()
-    var pages = getCurrentPages()    //获取加载的页面
-    var currentPage = pages[pages.length - 1]    //获取当前页面的对象
+    // var pages = getCurrentPages()    //获取加载的页面
+    // var currentPage = pages[pages.length - 1]    //获取当前页面的对象
     this.setData({
       isIphoneX: app.globalData.isIphoneX,
-      meUrl: currentPage.route
+      // meUrl: currentPage.route
     })
   },
   onShow(){
@@ -69,12 +70,7 @@ Page({
       leftNum: left,
       lengthData:false,
     })
-    // clearInterval(this.data.listTimer)
     if (this.data.status == key || !this.data.isLoadingTrue) { return false }
-    // wx.showLoading({
-    //   title: '加载中....',
-    //   mask:true
-    // })
     this.setData({
       orderList: [],
       page:1,
@@ -102,9 +98,11 @@ Page({
       loading:true,
       noData:false
     })
-    app.req({ "query": 'query{customer_order_list(status:"' + this.data.status + '",page_index:' + this.data.page + ',count:' + this.data.count +') {pay_order_id,name,price_pay,orderStatus,serviceStatus,product_id,proSku_id, image_first,lite_image,c_begin_datetime,isEvaluate,price_discount}}'},res=>{
+    app.req({
+      "query": 'query{customer_order_list(status:"' + this.data.status + '",page_index:' + this.data.page + ',count:' + this.data.count + ') {pay_order_id,name,price_pay,orderStatus,serviceStatus,product_id,proSku_id, image_first,lite_image,c_begin_datetime,isEvaluate,price_discount,c_end_datetime,dateTime,startTime,endTime}}'},res=>{
       // console.log(res,'======order',this.data.status)
       wx.hideLoading()
+      
       this.setData({
         loading: false,
       })

@@ -123,7 +123,7 @@ Page({
         wx.getStorage({ //如果用当前地址下过单，则删除缓存
           key: 'selectedAddress_' + app.globalData.customerId,
           success: res => {
-            if (res.data.customer_address_id == this.data.addressId) {
+            if (res.data.customer_address_id == id) {
               wx.removeStorage({
                 key: 'selectedAddress_' + app.globalData.customerId,
                 success: function (res) { },

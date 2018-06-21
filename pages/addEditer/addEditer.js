@@ -52,7 +52,6 @@ Page({
     })
   },
   backFn() {
-    console.log('=======backFn')
     wx.removeStorageSync('editer')
     wx.removeStorageSync('tdata')
     wx.removeStorageSync('type')
@@ -64,13 +63,7 @@ Page({
       wx.redirectTo({
         url: '/pages/addressList/addressList',
       })
-    }
-  },
-  onShow(){
-    console.log('1231023129083910====shwo')
-  },
-  onHide(){
-    console.log('=========sjflkasjfkl;')
+    } 
   },
   getAddressType(){
     this.setData({
@@ -96,10 +89,23 @@ Page({
       this.openTips()
     }
   },
+  getLength(str){
+    console.log(str,'=====')
+    var l = str.length; 
+    var unicodeLen = 0; 
+    for(let i = 0; i<l; i++) { 
+      if ((str.charCodeAt(i) > 127)) {
+        unicodeLen++;
+      }
+      unicodeLen++;
+    }
+    return unicodeLen; 
+  },
   getUserName(options){
     this.setData({
-      userName:options.detail.value
+      userName: options.detail.value
     })
+    return false;
   },
   getPhone(options){
     this.setData({
@@ -117,6 +123,11 @@ Page({
     if(this.data.userName ==''){
       this.setData({
         errorTip:'联系人不能为空'
+      })
+      return false;
+    } else if (this.getLength(this.data.userName) >30){
+      this.setData({
+        errorTip: '请填写长度30个字符以内的联系人'
       })
       return false;
     }
@@ -184,7 +195,7 @@ Page({
       lbs_lng: this.data.location.lng,
       sub_address: this.data.detailed
     }
-    app.req({ "query": 'mutation{customer_address_add (customer_address_input:{username:"' + this.data.userName + '",phone:"' + this.data.phone + '",province:"' + this.data.ad_info.province + '",city:"' + this.data.ad_info.city + '",district:"' + this.data.ad_info.district + '",address:"' + this.data.address + '",lbs_lat:"' + this.data.location.lat + '",lbs_lng:"' + this.data.location.lng + '",default_address:0,sub_address:"' + this.data.detailed + '"}){customer_address_id,customer_id}}' }, res => {
+    app.req({ "query": 'mutation{customer_address_add (customer_address_input:{username:"' + this.data.userName + '",phone:"' + this.data.phone + '",province:"' + this.data.ad_info.province + '",city:"' + this.data.ad_info.city + '",district:"' + this.data.ad_info.district + '",address:"' + this.data.address + '",lbs_lat:"' + this.data.location.lat + '",lbs_lng:"' + this.data.location.lng + '",default_address:0,sub_address:"' + this.data.detailed + '"}){customer_address_id,customer_id,username,phone,address,sub_address}}' }, res => {
       if (res.data.errors && res.data.errors.length > 1) {
         console.log('新增失败')
         this.setData({
@@ -209,7 +220,7 @@ Page({
             url: '/pages/myAddress/myAddress',
           })
         } else {
-          this.updateSelectedAddress();
+          this.updateSelectedAddress(res.data.data.customer_address_add);
           wx.redirectTo({
             url: '/pages/subOrder/subOrder',
           })
@@ -237,7 +248,7 @@ Page({
   },
   editerSaveFn(mstCode){
     
-    app.req({ "query": 'mutation{customer_address_update (customer_address_input:{customer_address_id:"' + this.data.addressId + '",username:"' + this.data.userName + '",phone:"' + this.data.phone + '",province:"' + this.data.ad_info.province + '",city:"' + this.data.ad_info.city + '",district:"' + this.data.ad_info.district + '",address:"' + this.data.address + '",lbs_lat:"' + this.data.location.lat + '",lbs_lng:"' + this.data.location.lng + '",default_address:' + Number(this.data.isDefault) + ',sub_address:"' + this.data.detailed + '"}){customer_address_id,customer_id}}'}, res => {
+    app.req({ "query": 'mutation{customer_address_update (customer_address_input:{customer_address_id:"' + this.data.addressId + '",username:"' + this.data.userName + '",phone:"' + this.data.phone + '",province:"' + this.data.ad_info.province + '",city:"' + this.data.ad_info.city + '",district:"' + this.data.ad_info.district + '",address:"' + this.data.address + '",lbs_lat:"' + this.data.location.lat + '",lbs_lng:"' + this.data.location.lng + '",default_address:' + Number(this.data.isDefault) + ',sub_address:"' + this.data.detailed + '"}){customer_address_id,customer_id,username,phone,address,sub_address}}'}, res => {
       if (res.data.errors && res.data.errors.length > 0 || res.data.data == null) {
         this.setData({
           requestOk: false
@@ -258,7 +269,7 @@ Page({
         //   key: 'addressId',
         //   data: res.data.data.customer_address_update.customer_address_id,
         // })
-        this.updateSelectedAddress();
+        this.updateSelectedAddress(res.data.data.customer_address_update);
         if (this.data.isMine) {
           wx.redirectTo({
             url: '/pages/myAddress/myAddress',
@@ -271,18 +282,16 @@ Page({
       }
     })
   },
-  updateSelectedAddress(){
-    console.log(this.data.address, '=====')
-    console.log(this.data.allAddress,'=====')
+  updateSelectedAddress(data){
     wx.setStorage({
       key: 'selectedAddress_' + app.globalData.customerId,
       data: { 
-        "customer_address_id": this.data.addressId, 
-        "username": this.data.userName, 
-        "phone": this.data.phone,
-        "address": this.data.address, 
-        "allAddress":this.data.allAddress,
-        "sub_address": this.data.detailed 
+        "customer_address_id": data.customer_address_id, 
+        "username": data.username, 
+        "phone": data.phone,
+        "address": data.address, 
+        "allAddress": data.address,
+        "sub_address": data.sub_address 
         },
     })
   },
@@ -359,8 +368,8 @@ Page({
           lat: locaArr[1],
           lng: locaArr[0]
         }
-        var str = item.province == item.city ? item.province + data[0].regeocodeData.pois[0].name : item.province + item.city + data[0].regeocodeData.pois[0].name;
-        this.setData({
+        var str = item.province == item.city ? item.province + item.district + data[0].regeocodeData.pois[0].name : item.province + item.city + item.district + data[0].regeocodeData.pois[0].name;
+          this.setData({
           address: str,
           allAddress: data[0].regeocodeData.pois[0].name,
           ad_info: {

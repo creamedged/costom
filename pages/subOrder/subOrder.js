@@ -86,7 +86,7 @@ Page({
         } else {
           res.data.endDate = res.data.date + ' ' + res.data.endTime;
         }
-        res.data.showTime = res.data.endTime == null ? res.data.date + ' ' + res.data.startTime : res.data.date + ' ' + res.data.startTime + '~' + res.data.endTime;
+        res.data.showTime = res.data.endTime == null ? res.data.date + ' ' + res.data.startTime : res.data.date + ' ' + res.data.startTime + '-' + res.data.endTime;
         this.setData({
           time: res.data
         })
@@ -94,7 +94,7 @@ Page({
     })
   },
   getAddressStorage(){
-    var storageAddress = wx.getStorageSync('selectedAddress_' + app.globalData.customerId)
+    var storageAddress = wx.getStorageSync('selectedAddress_' + app.globalData.customerId);
     if(!storageAddress){
       this.getDefaultAddress();
     }else{
@@ -149,6 +149,7 @@ Page({
         return false;
       }
       this.setData({
+        couponIcon: true,
         selectCouponIndex: res.data.data.customer_best_coupon.coupon_receive_id,
         couponNews:{
           id: res.data.data.customer_best_coupon.coupon_receive_id,
@@ -184,10 +185,6 @@ Page({
   
   selecteCoupon(options){
     this.setData({
-      couponIcon:true
-    })
-    
-    this.setData({
       selectCouponIndex: options.currentTarget.dataset.id,
       tempCoupon:{
         index : options.currentTarget.dataset.index,
@@ -197,6 +194,9 @@ Page({
   },
 
   selectedCouponBtn(){
+    this.setData({
+      couponIcon: true
+    })
     if (this.data.tempCoupon.id == 'no') {
       this.setData({
         couponNews: {
@@ -207,10 +207,12 @@ Page({
       this.totalPrice()
       return false
     }
+    
     this.setData({
+      couponIcon: true,
       couponNews: {
         id: this.data.tempCoupon.id,
-        name: this.data.couponList[this.data.tempCoupon.index].name,
+        name: this.data.couponList[this.data.tempCoupon.index].name || '',
       }
     })
     this.totalPrice()
@@ -263,6 +265,14 @@ Page({
   },
 
   countAdd(){   //数量加法
+    wx.removeStorage({
+      key: 'time_' + app.globalData.customerId,
+      success:res=> {
+        this.setData({
+          time: {}
+        })
+      },
+    })
     var w=this.data.count;
     if(this.data.term.buy_multiple_max == 0){  //最大值为0时表示没有最大值可以任意加
       w++
@@ -281,16 +291,23 @@ Page({
             isTips: false,
             tipsContent: ''
           })
-        }, 2000)
+        }, 4000)
         return false;
       }else{
         w++
+        // this.setData({
+        //   isTips: false,
+        // })
       }
     }
     if (this.data.term.buy_multiple_o2o == 1) { //
       wx.removeStorage({
         key: 'time_' + app.globalData.customerId,
-        success: function (res) {},
+        success:res=> {
+          this.setData({
+            time: {}
+          })
+        },
       })
       this.setData({
         time: {}
@@ -302,6 +319,14 @@ Page({
     this.totalPrice()
   },
   countRedut(){  //数量减法
+    wx.removeStorage({
+      key: 'time_' + app.globalData.customerId,
+      success: res=> {
+        this.setData({
+          time: {}
+        })
+      },
+    })
     var n=this.data.count;
     if (n <= this.data.term.buy_multiple_min){
       n = this.data.term.buy_multiple_min
@@ -315,7 +340,7 @@ Page({
           isTips: false,
           tipsContent: ''
         })
-      }, 2000)
+      }, 4000)
       return false;
     }else{
       n--
@@ -335,7 +360,14 @@ Page({
     this.totalPrice()
   },
   countChange(options){
-    console.log(isNaN(Number(options.detail.value)))
+    wx.removeStorage({
+      key: 'time_' + app.globalData.customerId,
+      success: res=> {
+        this.setData({
+          time: {}
+        })
+      },
+    })
     if(isNaN(Number(options.detail.value))){
       options.detail.value = this.data.term.buy_multiple_min
     }
@@ -343,7 +375,6 @@ Page({
     clearInterval(this.data.sumPriceTimer)
     if (this.data.term.buy_multiple_max != 0) {
       if (options.detail.value >= this.data.term.buy_multiple_max) {
-        console.log('+++')
         options.detail.value = this.data.term.buy_multiple_max
         this.setData({
           isTips: true,
@@ -362,7 +393,7 @@ Page({
         isTips:false,
         tipsContent:''
       })
-    },2000)
+    },4000)
     if (this.data.term.buy_multiple_o2o == 1){
       this.setData({
         time:{}
@@ -403,10 +434,9 @@ Page({
       isDisabled: true
     })
     app.getmstCode(res => {
-      console.log(this.data.couponNews.id,'=======')
-      app.req({ "query": 'mutation{customer_create_order(order_input:{product_id:"' + this.data.productId + '",psku_id:"' + this.data.skuId + '",begin_datetime:"' + this.data.time.startDate + '",end_datatime:"' + this.data.time.endDate + '",customer_address_id:"' + this.data.addressId + '",coupon_receive_id:"' + (this.data.couponNews.id || 0) + '",num:' + this.data.count + ',remark:"' + this.data.remark.replace(/\s+/g, '') + '"}){pay_order_id,name,uid,price_total,create_datetime,price_discount}}'},res=>{
+      app.req({ "query": 'mutation{customer_create_order(order_input:{product_id:"' + this.data.productId + '",psku_id:"' + this.data.skuId + '",begin_datetime:"' + this.data.time.startDate.split('/').join('-') + '",end_datatime:"' + this.data.time.endDate + '",customer_address_id:"' + this.data.addressId + '",coupon_receive_id:"' + (this.data.couponNews.id || 0) + '",num:' + this.data.count + ',remark:"' + this.data.remark.replace(/\s+/g, '') + '"}){pay_order_id,name,uid,price_total,create_datetime,price_discount}}'},res=>{
         if (res.data.errors && res.data.errors.length > 0 || res.data.eror) {
-          console.log('接口错误')
+          // console.log('接口错误')
           this.setData({
             isDisabled: false
           })

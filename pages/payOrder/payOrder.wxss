@@ -1,7 +1,7 @@
 /* pages/payOrder/payOrder.wxss */
 .time{overflow: hidden; color: #000; font-size:30rpx; padding:42rpx 0px; background: #efeff4; border-bottom:1px solid #eeeeee}
 .time text{color:#00a0e9}
-.time .content{padding-left:70rpx; line-height: 50rpx; width:300rpx; margin:0 auto;}
+.time .content{ line-height: 50rpx;}
 .title{color:#727171; font-size:28rpx; width:170rpx; display: inline-block;}
 .item{padding:38rpx 40rpx; font-size:28rpx;}
 .item .price{color:#ff0000}

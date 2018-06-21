@@ -15,8 +15,8 @@
   </view>
   <view class="skuNote">{{detailData.descript}}</view>
   <view class="productPrice">
-    <text class="leftPrice">￥{{skuPrice/100}}<text wx:if="{{unit}}">/{{unit}}</text></text>
-    <view class="rightPrice" wx:if="{{pricev}}"><text>￥</text>{{pricev/100}}</view>
+    <view class="leftPrice">￥<text class='num'>{{skuPrice/100}}</text><text wx:if="{{unit}}"> /{{unit}}</text></view>
+    <view class="rightPrice" wx:if="{{pricev}}">￥<text>{{pricev/100}}</text></view>
   </view>
   <view class="couponList" wx:if="{{couponList.length>0}}">
     <view class="item" wx:for="{{couponList}}" wx:key="{{index}}" bindtap="getCouponFn" data-index="{{index}}" data-status="{{item.status}}" data-id="{{item.coupon_id}}">
@@ -37,10 +37,10 @@
      <image src="../../images/more.png"></image> 
     <text class="selecteItem">{{selectedItem}}</text>
   </view>
-  <view class="skuService">
+  <view class="skuService" style='border:none'>
     <text wx:if="{{!score}}">暂无评价</text>
     <block wx:else>
-      <text style="color:#f64755">{{score.percentStr}}　好评</text>
+      <text>{{score.percentStr}} 好评</text>
       <view class="selecteItem serverImg">
         <block wx:for="{{branch}}" wx:key="{{index}}">
           <image wx:if="{{item < score.avgScore}}" src="../../images/storActive.png"></image>
@@ -55,7 +55,7 @@
       <view class="name">{{item.tag}}</view>
     </view>
     <view class="content">
-      <image src="{{item.url}}" mode="widthFix"></image>
+       <image src="{{item.url}}" mode="widthFix"></image> 
     </view>
   </view>
 </scroll-view>

@@ -18,6 +18,7 @@ Page({
     isIphoneX:false
   },
   onLoad: function (options) {
+    console.log(options,'=======')
     this.setData({
       isIphoneX: app.globalData.isIphoneX,
       orderId:options.id

@@ -27,7 +27,7 @@ Page({
     skuError: '',
     orderId:'',
     url:'',
-    isIphoneX:false
+    isIphoneX:false,
   },
 
   onLoad: function (options) {
@@ -65,10 +65,11 @@ Page({
       wx.switchTab({
         url: this.data.url,
       })
+    }else{
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
     }
-    wx.switchTab({
-      url: '/pages/index/index',
-    })
   },
   scrollTopView(options){
     var top = parseInt(options.detail.scrollTop);
@@ -365,8 +366,9 @@ Page({
   getBrand(id){
     app.req({ "query": 'query{customer_productEvaluateBase(product_id:"'+id+'",num:0){avgScore,total,percent,percentStr}}'},res=>{
         if(res.data.data.customer_productEvaluateBase){
+          res.data.data.customer_productEvaluateBase.avgScore = Math.round(res.data.data.customer_productEvaluateBase.avgScore)
           this.setData({
-            score: res.data.data.customer_productEvaluateBase
+            score:res.data.data.customer_productEvaluateBase
           })
         }
     })

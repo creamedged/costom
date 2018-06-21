@@ -77,7 +77,7 @@ Page({
     }
     wx.showModal({
       title: '提示',
-      content: '确定要取消定单吗？',
+      content: '确定要取消订单吗？',
       success:res=>{
         if(res.confirm){
           this.cancelOrder(this.data.orderId, content)

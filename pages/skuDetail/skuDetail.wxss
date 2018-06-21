@@ -9,10 +9,11 @@
 
 .skuNote{background: #fff; padding:0 20rpx 50rpx; color:#707070; font-size:32rpx; word-break: break-all;word-wrap: break-word;white-space: pre-wrap}
 .productPrice{margin-bottom:30rpx;background:#fff; padding:0 20rpx; overflow: auto;}
-.productPrice .leftPrice{color:#f64755; font-size:60rpx; float:left; fong-weight:bold}
-.productPrice .rightPrice{font-size:42rpx; color:#a3a3a3;text-decoration: line-through;float:left; margin:20rpx 0 0 20rpx;}
+.productPrice .leftPrice{color:#f64755; font-size:40rpx; float:left;}
+.productPrice .leftPrice .num{color:#f64755; font-size:60rpx; font-weight:bold}
+.productPrice .rightPrice{font-size:23rpx; color:#a3a3a3;float:left; margin:20rpx 0 0 20rpx;}
 .productPrice .leftPrice text{font-size:23rpx;color:#939393}
-.productPrice .rightPrice text{font-size:23rpx;}
+.productPrice .rightPrice text{font-size:42rpx;text-decoration: line-through;}
 
 /*优惠券  */
 .couponList{background: #fff; padding:50rpx 20rpx 20rpx; overflow: hidden;}
@@ -26,8 +27,8 @@
 .couponList .item .content .right1{float:right; font-size:18rpx; width:30rpx;  line-height: 22rpx; margin-top:15rpx; color:#fff;word-break: break-all;word-wrap: break-word;white-space: pre-wrap; padding-right:9rpx;}
 
 .skuService{overflow: hidden; background: #fff; padding:30rpx 20rpx; background:#fafafa; border-bottom:1rpx solid #eeeeee}
-.skuService text{font-size:30rpx; color:#000; float:left;}
-.skuService .selecteItem{float:right; color:#999; margin-right:15rpx;}
+.skuService text{font-size:30rpx; color:#7a7a7a; float:left;}
+.skuService .selecteItem{float:right; color:#7a7a7a; margin-right:15rpx;}
 .skuService image{ float:right; width:21rpx; height: 21rpx; margin-top:5px; margin-left:10rpx;}
 .serverImg image{float:left;}
 
@@ -48,11 +49,11 @@
 .sheetTitle .imgIcon{width:200rpx; height: 200rpx; overflow: hidden;border-radius:15rpx; float:left;}
 .sheetTitle .imgIcon image{width:200rpx; height: 200rpx;}
 .sheetTitle .titlePrice{position: absolute; bottom:0px; margin-left:225rpx;}
-.sheetTitle .titlePrice .price{color:#ff3b30; font-size:40rpx; display: block;}
-.sheetTitle .titlePrice .title{color:#808080; font-size:24rpx; display: block;}
+.sheetTitle .titlePrice .price{color:#ff3b30; font-size:44rpx; display: block;font-weight:bold}
+.sheetTitle .titlePrice .title{color:#7a7a7a; font-size:24rpx; display: block;}
 .cancel{height: 200rpx; background:#00a0e9; color:#fff; margin:0px; padding:0px;}
-.dItem{ border:1px solid #d8d8d8; position:static; font-size:24rpx; color:#333333; display: block; float:left;padding:10rpx 18rpx; border-radius: 10rpx; margin-right:20rpx; margin-top:20rpx;}
-.active{border:1px solid #00a0e9; background: none; color:#0f83f2}
+.dItem{ border:1px solid #c6c6c6; position:static; font-size:24rpx; color:#333333; display: block; float:left;padding:10rpx 18rpx; border-radius: 10rpx; margin-right:20rpx; margin-top:20rpx;}
+.active{border:1px solid #6faef8; background: none; color:#6faef8}
 .skuBtn{height: 80rpx; background:#4396e9; color:#fff; margin:0rpx 30rpx 30rpx; padding:0px; position: fixed; bottom:0px; left:0px; right: 0rpx; text-align: center; line-height: 80rpx; border-radius: 15rpx;font-size:28rpx}
 .typeNoData{padding-bottom:50rpx; padding-top:0px;}
 .typeNoData image{width:220rpx; height:170rpx;}
@@ -64,7 +65,7 @@
 .describeNav .selected{color:#0f83f2; border-bottom:6rpx solid #6fb5f7; }
 
 .describe{overflow: hidden;}
-.describe .title{height: 42rpx; font-size:46rpx; line-height: 46rpx; margin-top:120rpx;}
+.describe .title{height: 42rpx; font-size:46rpx; line-height: 46rpx; margin-top:60rpx;}
 .describe .title .line{height: 42rpx; width:24rpx; background:#9ac6fa; display: block; float:left; margin-right:20rpx;}
 .describe .title .name{float:left;}
 .describe .content{text-align: center; margin-top:120rpx;  padding:0 20rpx;}

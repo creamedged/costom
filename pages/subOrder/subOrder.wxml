@@ -19,13 +19,13 @@
      <view class="imgBox"><image src="{{imgUrl}}"></image></view>
      <view class="orderContent">
         <view class="orderTitle">{{productName}}-{{skuName}}</view>
-        <view class="orderPrice">￥{{price/100}}<text wx:if="{{unit != ''}}">/{{unit}}</text></view>
+        <view class="orderPrice">￥{{price/100}}<text wx:if="{{unit != ''}}"> /{{unit}}</text></view>
         <view class="buyNum" wx:if="{{term.buy_multiple == 1}}">
           <view class="changeNum">
             <view class="aLeft reduceBox" bindtap="countRedut">
               <image class="reduce" src="../../images/reduce.png"></image>
             </view>
-            <input class="num aLeft" value="{{count}}" placeholder='0' bindblur="countChange" ></input>
+            <input type='number' class="num aLeft" value="{{count}}" placeholder='0' bindblur="countChange" ></input>
             <view class="aLeft addBox" bindtap="countAdd">
               <image class="add" src="../../images/add.png"></image>
             </view>
@@ -50,9 +50,8 @@
       <image class="moreIcon" src="../../images/more.png"></image>
     </view>
   </view>
-
   <view class="borderBottom setTime" bindtap="goToTime">
-    <view class="icon_time" wx:if="{{time != ''}}"><image src="../../images/timeIconSelected.png"></image></view>
+    <view class="icon_time" wx:if="{{time.showTime }}"><image src="../../images/timeIconSelected.png"></image></view>
     <view class="icon_time" wx:else><image src="../../images/timeIcon.png"></image></view>
     <view class="timeContent defaultNewsSet">
       <text class="time defaultNewsSet" style="{{time.showTime ? 'color:#333; font-size:32rpx;':''}}">{{time.showTime || '选择服务时间'}}</text>
@@ -61,8 +60,12 @@
   </view>
 
   <view class="borderBottom coupon" bindtap="hideDolog">
-    <view class="icon_coupon" wx:if="{{couponIcon}}"><image src="../../images/couponIconSelected.png"></image></view>
-    <view class="icon_coupon" wx:else><image src="../../images/couponIcon.png"></image></view>
+    <view class="icon_coupon" wx:if="{{couponIcon}}">
+      <image src="../../images/couponIconSelected.png"></image>
+    </view>
+    <view class="icon_coupon" wx:else>
+      <image src="../../images/couponIcon.png"></image>
+    </view>
     <view class="couponContent defaultNewsSet">
       <view class="title">{{couponNews.name||'选择优惠券'}}</view>
       <view class="discount" wx:if="{{allPrice.discountPrice}}">减{{allPrice.discountPrice/100}}元</view>
@@ -105,11 +108,8 @@
         </view>
       </view>
     </view>
-    <view class="skuBtnBox">
-      <button class='skuBtn' bindtap='selectedCouponBtn'>确定</button>
+    <view class="skuBtnBox" bindtap='selectedCouponBtn'>
+      <button class='skuBtn'>确定</button>
     </view>
   </view>
-   <!-- <action-sheet-cancel class="skuBtn" catchtap="skuBtn" data-id="{{detailData.product_id}}">
-    <view>确定</view>
-  </action-sheet-cancel>  -->
 </action-sheet>

@@ -27,8 +27,8 @@ Page({
     this.setData({
       isIphoneX: app.globalData.isIphoneX,
       count1: curd.getMonth() - this.data.startm + 1,
-      dateTime: new Date(curd).format("yyyy-MM-dd"),
-      dt: new Date(curd).format("yyyy-MM-dd")
+      dateTime: new Date(curd).format("yyyy/MM/dd"),
+      dt: new Date(curd).format("yyyy/MM/dd")
     })
     wx.getStorage({
       key: 'detail_' + app.globalData.customerId,
@@ -103,6 +103,7 @@ Page({
     });
   },
   bespeak(options){
+    console.log(options,'============>>>>>>')
     var index=options.currentTarget.dataset.index;
     this.setData({
       selectTime:index,
@@ -133,7 +134,7 @@ Page({
       data:{
         startTime:this.data.startTime,
         endTime:this.data.endTime,
-        date:this.data.date,
+        date:this.data.date.split('-').join('/'),
         dIndex: this.data.selectDay,
         tIndex: this.data.selectTime
       }
@@ -158,7 +159,7 @@ Page({
         
         var vData = res.data.data.customer_product_available_times;
         this.setData({
-          start: '' + new Date().format('yyyy-MM-dd'),
+          start: '' + new Date().format('yyyy/MM/dd'),
           end: vData[vData.length-1].dateTime
         })
         this.setData({

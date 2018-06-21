@@ -6,7 +6,7 @@
 </view> 
 <view class="container {{isIphoneX?'containerIphoneX' :''}}">
   <view class="time">
-      <view class="content" style="background:url('../../images/time.png') no-repeat; background-size:49rpx 49rpx">{{CountDown}}</view>
+      <view class="content" style="text-align:center">{{CountDown}}</view>
   </view>
   <view class="item">
     <text class="title">服务名称</text>{{payData.name}}

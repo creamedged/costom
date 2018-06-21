@@ -20,7 +20,7 @@
 .item .content .time{font-size:28rpx; color:#333;overflow: hidden; margin:10rpx 0 25rpx;}
 .item .content .price{font-size:36rpx; color:#f00; position: absolute; bottom:0px; }
 
-.item .footer{overflow: hidden; padding:0rpx 20rpx; height: 76rpx;}
+.item .footer{ padding:0rpx 20rpx; height: 76rpx;}
 .item .footer .price{float:left; margin-top:15rpx;}
 .item .footer .price .priceNum{font-size:34rpx; color:#ff3b30; float:left;font-weight: bold}
 .item .footer .price .couponNote{display:block; border:1px solid #d3d3d3; padding:0 6rpx; font-size:18rpx; color:#939393; float:left; margin:10rpx 0 0 10rpx }

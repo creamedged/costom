@@ -28,8 +28,8 @@
 .orderDetail .orderContent{margin-left:221rpx}
 .orderDetail .imgBox{width:180rpx; height: 180rpx; float:left;}
 .orderDetail .imgBox image{width:180rpx; height: 180rpx;}
-.orderDetail .orderTitle{font-size:28rpx; color:#333333; line-height: 29rpx;}
-.orderDetail .orderPrice{font-size:34rpx; color:#ff3b30; margin-top:23rpx; margin-left:-5rpx;}
+.orderDetail .orderTitle{font-size:28rpx; color:#333333; line-height: 29rpx;font-weight:bold}
+.orderDetail .orderPrice{font-size:34rpx; color:#ff3b30; margin-top:23rpx; margin-left:-5rpx;font-weight:bold}
 .orderDetail .orderPrice text{font-size:18rpx; color:#939393;}
 
 .buyNum{ overflow: hidden; margin-top:25rpx;}
@@ -68,7 +68,7 @@
 .fnFasl .item .note{ color:#aaaaaa; font-size:20rpx;}
 .fnFasl .item .couponIcon{position: absolute; right:20rpx; width:30rpx; top:50%; height: 30rpx; margin-top:-15rpx;}
 .fnFasl .item .couponIcon image{width:30rpx; height: 30rpx; }
-
+.fnFasl .item:last-child {border:none}
 .tips{background:#a0cafa; font-size:26rpx; height:30rpx; padding:15rpx 0; color:#fff;}
 .tips image{width:30rpx; height: 30rpx; display:block; float:left; margin-right:10rpx;}
 .tips text{float:left; margin-top:-1rpx;}

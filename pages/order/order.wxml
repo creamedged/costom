@@ -29,7 +29,7 @@
         <image wx:else src="../../images/default.png"></image>
         <view class="orderNews">
             <view class="name">{{item.name}}</view>
-             <view class="time" wx:if="{{item.c_begin_datetime != null}}">服务时间:<view>{{tools.forMat(item.c_begin_datetime,1)}}</view></view>
+             <view class="time" wx:if="{{item.c_begin_datetime != null}}">服务时间:<view>{{tools.forMat(item.dateTime,3)}} {{item.startTime}}<text wx:if="{{item.endTime}}">-{{item.endTime}}</text></view></view>
             <!-- <view class="price">￥{{item.price_pay/100}}</view> -->
             <!-- <image class="more" src="../../images/more.png"></image> -->
         </view>
@@ -48,7 +48,7 @@
           
          <block  wx:if="{{item.orderStatus=='waitService'}}"> 
           <button class="blueBtn" data-orderId="{{item.pay_order_id}}" wx:if="{{item.orderStatus=='waitService' && item.serviceStatus =='leave' }}" bindtap="okOrder" >确认完成</button>
-          <button class="ashBtnAlgin" bindtap="goDetail" data-product_id="{{item.product_id}}" data-skuId="{{item.proSku_id}}" data-url="/pages/skuDetail/skuDetail" >再次购买</button>
+          <button class="ashBtnAlgin ml13" bindtap="goDetail" data-product_id="{{item.product_id}}" data-skuId="{{item.proSku_id}}" data-url="/pages/skuDetail/skuDetail" >再次购买</button>
          </block> 
          <block wx:if="{{item.orderStatus=='cancel'}}">
           <button class="ashBtnAlgin" bindtap="goDetail" data-product_id="{{item.product_id}}" data-skuId="{{item.proSku_id}}" data-url="/pages/skuDetail/skuDetail" >再次购买</button>
